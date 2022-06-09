@@ -7,7 +7,7 @@ class Conexion
     try {
 
 
-      $base=new PDO('mysql:host=localhost;dbname=id16390081_premio','id16390081_dga','*ohj{bk4a*y\3rIN');
+      $base=new PDO('mysql:host=localhost;dbname=premio','root','');
         $base->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
      $base->exec("SET CHARACTER SET UTF8");
 
