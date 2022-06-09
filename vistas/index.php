@@ -71,4 +71,4 @@
       $convocatoria = new ConvocatoriaControlador();
       $historial = $convocatoria->convocatoriaVigente();
       $count = count($historial);
-      ?> -->
+      ?>
