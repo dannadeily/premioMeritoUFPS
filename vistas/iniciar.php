@@ -33,7 +33,7 @@
                     <p class="text-center small">ingresa codigo y contraseña</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="../controladores/router.php?con=UsuarioControlador&fun=iniciarSesion" method="post" class="row g-3 needs-validation" novalidate>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>

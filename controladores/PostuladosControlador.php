@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/modelos/PostuladosModelo.php';
+require_once '../modelos/PostuladosModelo.php';
 
 class PostuladosControlador
 {
