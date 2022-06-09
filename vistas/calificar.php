@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
 }else {
-  require_once '../../controladores/ConvocatoriaControlador.php';
+  require_once '../controladores/ConvocatoriaControlador.php';
   $convocatoria=new ConvocatoriaControlador();
   $listaConvocatorias=$convocatoria->historial();
 
@@ -13,13 +13,10 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/calificar.css">
+    <link rel="stylesheet" href="css/calificar.css">
     <title>Convocatorias</title>
-    
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="../js/alertas.js"></script>
   </head>
-  <body  onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+  <body>
 
     <header>
       <?php include '../HeaderLogin.php'; ?>
