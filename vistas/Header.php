@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
+require '../config/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -7,7 +7,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
   <meta charset="utf-8">
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href=<?php ruta ?>"/vistas/css/Header.css">
+  <link rel="stylesheet" href="css/Header.css">
 </head>
 <body id="body-header">
 
