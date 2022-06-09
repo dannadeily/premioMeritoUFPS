@@ -1,0 +1,51 @@
+/* Container for flexboxes */
+.div-activar{
+  margin-bottom: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 2%;
+}
+
+#container-activar{
+  display:inline-flex ;
+
+
+}
+
+
+ #container-activar nav {
+  padding: 20px;
+}
+
+.h6-class {
+  text-align: justify;
+}
+#costumers-activar td {
+  padding: 13px;
+  width: 70%;
+  border-bottom: 1px solid #F74444;
+
+}
+
+.a-class{
+  color: #797474;
+}
+
+.article-activar div {
+  position: relative;
+  background-color: #f1f1f1;
+  padding: 100px;
+    margin: 4px 2px;
+}
+
+ button {
+  background-color: #aa1916;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}

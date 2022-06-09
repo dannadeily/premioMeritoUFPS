@@ -1,0 +1,112 @@
+/************
+//--------------------------------
+// GENERAL
+//-------------------------------
+************/
+#body-header {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #666;
+	background: #f2f2f2;
+	font-size: 1em;
+	line-height: 1.5em;
+	padding-top: 80px;
+}
+
+#logo-header {
+
+	height: auto;
+}
+
+
+/************
+//-------------------------------
+// CABECERA
+//-------------------------------
+************/
+#main-header {
+	background: #aa1916;
+	color: white;
+	height: 80px;
+
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+}
+	#main-header a {
+		color: white;
+	}
+
+
+
+
+/*
+ * Logo
+ */
+#logo-header {
+	margin-left: 30px;
+	float: left;
+	padding: 15px 0 0 20px;
+	text-decoration: none;
+}
+	#logo-header:hover {
+		color: #0b76a6;
+	}
+
+	#logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
+
+	#logo-header .site-desc {
+		display: block;
+		font-weight: 300;
+		font-size: 0.8em;
+		color: #999;
+	}
+
+
+/*
+ * Navegación
+ */
+#nav-header {
+	float: right;
+}
+	#nav-header ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		padding-right: 20px;
+	}
+
+		#nav-header ul li {
+			display: inline-block;
+			line-height: 80px;
+		}
+
+			#nav-header ul li a {
+				display: block;
+				padding: 0 10px;
+				text-decoration: none;
+			}
+
+/************
+//------------------------------
+// CONTENIDO
+//------------------------------
+************/
+#main-content {
+	background: white;
+	width: 90%;
+	max-width: 800px;
+	margin: 20px auto;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+	#main-content header,
+	#main-content .content {
+		padding: 40px;
+	}

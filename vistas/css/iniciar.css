@@ -1,0 +1,114 @@
+*{
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#container{
+  margin-bottom: 2%;
+  margin-top:3%;
+}
+.form-login{
+  margin: auto;
+  border-radius: 20px;
+  background white;
+  width: 400px;
+  height: 350px;
+  box-shadow: 7px 13px 37px black;
+  margin-top: 123px solid red;
+  border-bottom:4px solid #aa1916;
+
+}
+.form-login h1{
+ text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #aa1916;
+}
+
+.form-login  #codigo {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+.form-login  #codigo input{
+text-align: center;
+width: 80%;
+}
+.form-login  #contrasena {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+ input{
+
+  font-size: 13px;
+  padding: 5px;
+  border:1px solid #85929e;
+  border-radius: 5px;
+}
+
+.form-login  #contrasena input{
+text-align: center;
+width: 80%;
+}
+.form-login #correo{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+.form-login #correo input{
+  text-align: center;
+  width: 80%;
+}
+
+.form-login #ingresar{
+  text-align: center;
+}
+
+.form-login  #ingresar input{
+
+  background-color: #aa1916;
+  margin:auto;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.form-login  #link {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+/*cambiar contraseña*/
+
+.form-login #p-contraseña input{
+  text-align: center;
+  width: 80%;
+}
+
+.form-login #p-contraseña{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.box{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-login h2{
+ text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #aa1916;
+}

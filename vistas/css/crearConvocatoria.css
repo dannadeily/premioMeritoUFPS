@@ -1,0 +1,91 @@
+*{
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#container{
+  margin-bottom: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top:3%;
+}
+
+
+.form_register{
+  margin:auto;
+  width: 900px;
+
+
+}
+
+
+.form_register hr{
+   border: 0;
+   background: #DC0F0F;
+   height: 1px;
+   margin:10px;
+   display:block;
+
+}
+#tabla-convocatoria table{
+  border-collapse: separate;
+	border-spacing: 70px 70px;
+
+}
+form{
+  background: #FFF;
+  padding: 20px 20px;
+
+}
+
+.form_register #button-convocatoria {
+  text-align: center;
+}
+
+.form_register #input-fecha input{
+  width: 250px;
+
+}
+.form_register #button-convocatoria input{
+  background-color: #aa1916;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
+
+
+reset{
+  button-registrar{
+    font-size: 12px;
+    background: 10px;
+    padding: 10px;
+    color: #FFF;
+    letter-spacing: 3px;
+    border:0;
+    cursor:  pointer;
+    margin 15px auto;
+
+}
+.alert{
+  width: 100%;
+  background: #66e07d66;
+  border-radius: 6px;
+  margin: 20px auto;
+
+}
+.msg_error{
+  color = #e65656;
+
+}
+.msg_save{
+  color = #126e68;
+}
+.alert p{
+  padding: 10px;
+}

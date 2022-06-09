@@ -1,0 +1,22 @@
+#container-editarC{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+}
+
+#container-editarC .input-nombre{
+  width: 50%;
+}
+#button-categoria input{
+  background-color: #aa1916;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}

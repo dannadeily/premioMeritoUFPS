@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+form{
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #666666;
+    width: 500px;
+    box-shadow: 7px 13px 37px black;
+}
+.box{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.buton{
+margin: auto;
+}
+
+.box p{
+  margin-top: 15px;
+
+}

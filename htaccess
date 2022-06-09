@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+Options All -Indexes
+
+RewriteBase /
+RewriteEngine On
