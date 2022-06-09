@@ -23,7 +23,7 @@ $datos=$usuario->listar($_SESSION['usuario']);
 
   </head>
   <header>
-    <!-- <?php include '../HeaderLogin.php'?> -->
+    <!-- <?php include 'HeaderLogin.php'?> -->
   </header>
   <body >
 
