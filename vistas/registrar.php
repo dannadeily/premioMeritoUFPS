@@ -81,8 +81,5 @@ session_destroy();
 
               </section>
 
-                <footer><?php   require 'footer.php';?></footer>
-
-
   </body>
 </html>
