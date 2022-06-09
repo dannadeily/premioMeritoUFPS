@@ -11,7 +11,7 @@ session_destroy();
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="../js/alertas.js"></script>
   </head>
-  <body  onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+  <body>
     <header>
     <?php   require 'Header.php';?>
     </header>
