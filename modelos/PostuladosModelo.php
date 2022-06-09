@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/modelos/Conexion.php';
+require_once 'Conexion.php';
 
 
 /**

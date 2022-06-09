@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/DocumentoModelo.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/controladores/PostuladosControlador.php';
+require_once '../modelos/DocumentoModelo.php';
+require_once 'PostuladosControlador.php';
 
 /**
  *

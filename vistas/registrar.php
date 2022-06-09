@@ -8,7 +8,6 @@ session_destroy();
     <meta charset="utf-8">
     <title> Registro</title>
     <link rel="stylesheet" href="css/registrar.css">
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="../js/alertas.js"></script>
   </head>
   <body>
@@ -73,12 +72,8 @@ session_destroy();
                  </table>
                  <br>
                  <p id="button-registrar">  <input id="button-iniciar" type="submit" value="Registrar"></p>
-
                </form>
-
              </div>
-
-
               </section>
 
   </body>

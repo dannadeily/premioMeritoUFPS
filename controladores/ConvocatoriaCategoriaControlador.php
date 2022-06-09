@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/modelos/ConvocatoriaCategoriaModelo.php';
+require_once '../modelos/ConvocatoriaCategoriaModelo.php';
 
 
 /**

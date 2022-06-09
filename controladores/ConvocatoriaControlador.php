@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/ConvocatoriaModelo.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/controladores/ConvocatoriaCategoriaControlador.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/controladores/CategoriaControlador.php';
+require_once  '../modelos/ConvocatoriaModelo.php';
+require_once  'ConvocatoriaCategoriaControlador.php';
+require_once  'CategoriaControlador.php';
 
 
 /**

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/modelos/Conexion.php';
+require_once 'Conexion.php';
 
 /**
  *
@@ -62,7 +62,7 @@ class UsuarioModelo extends Conexion
 
   public function recuperarContrasena($codigo_usuario,$contrasena,$email)
   {
-      
+
     $sql="update usuario set contrasena=:contrasena where codigo_usuario=:codigo_usuario and email=:email";
     $datos=$this->conectar()->prepare($sql);
     $datos->bindValue(':codigo_usuario', $codigo_usuario);
