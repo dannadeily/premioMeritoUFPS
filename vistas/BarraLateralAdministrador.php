@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/barraLateral.css">
 
-
      <script
       src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
       data-auto-a11y="true"
@@ -41,7 +40,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    
+
       <i class="bi bi-grid"></i>
       <span>NAVEGADOR PRINCIPAL</span>
   </li><!-- End Dashboard Nav convocatoria-->
@@ -52,22 +51,22 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="crearConvocatoria.php">
               <i class="bi bi-circle"></i><span>Crear Convocatorias</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="convocatoriaVigente.php">
               <i class="bi bi-circle"></i><span>Editar Convocatoria</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="calificar.php">
               <i class="bi bi-circle"></i><span>Calificar</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="historial.php">
               <i class="bi bi-circle"></i><span>Historial</span>
             </a>
           </li>
@@ -80,26 +79,26 @@
       </a>
       <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="forms-elements.html">
+          <a href="crearCategoria.php">
             <i class="bi bi-circle"></i><span>Crear Categoria</span>
           </a>
         </li>
         <li>
-          <a href="forms-layouts.html">
+          <a href="seleccionarCategoria.php">
             <i class="bi bi-circle"></i><span>Editar Categoria</span>
           </a>
         </li>
     </li><!-- End Forms Nav -->
   </ul>
   <li class="nav-item">
-    <a class="nav-link collapsed" href="users-profile.html">
+    <a class="nav-link collapsed" href="informe.php">
       <i class="bi bi-journal-text"></i>
       <span>Generar Informe</span>
     </a>
   </li><!-- End generar informe Page Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="pages-faq.html">
+    <a class="nav-link collapsed" href="cambiarContrasenaAdmin.php">
       <i class="bi bi-key-fill"></i>
       <span>Cambiar contraseña</span>
     </a>
@@ -110,86 +109,6 @@
 
 </aside><!-- End Sidebar-->
 
-
-
-  <!--
-
-    <input type="checkbox" class="checkbox" id="check">
-    <label class="menu" for="check" ><i class="fas fa-bars"></i></label>
-      <div class="left-panel">
-
-                  <ul>
-                    <br>
-             <h6 id="h1-barra"  style="color:#FFFFFF">NAVEGADOR PRINCIPAL</h6>
-
-                <li>
-                  <a id="lista" class="linea" href="#dashboard-items" data-toggle="collapse" >
-                     Convocatoria
-                  </a><i class='fas fa-angle-right' style='margin-left: 10px;color:white'></i>
-                </li>
-
-
-                    <div id="dashboard-items" class="collapse">
-                      <li>
-                        <a class="sub" id="lista" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/crearConvocatoria.php" >
-                          Crear Convocatoria
-                        </a>
-                      </li>
-
-                      <li>
-                        <a class="sub" id="lista" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/convocatoriaVigente.php" >
-                         Editar Convocatoria
-                        </a>
-                      </li>
-
-                      <li>
-                        <a class="sub" id="lista" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/calificar.php" >
-                         Calificar
-                      </a>
-                      </li>
-
-                      <li>
-                        <a class="sub" id="lista" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/historial.php">
-                         Historial
-                      </a>
-                      </li>
-
-                    </div>
-
-
-                <li>
-                  <a id="lista" class="linea" href="#profile-items" data-toggle="collapse" >
-                    Categoria
-                  </a> <i class='fas fa-angle-right' style='margin-left: 10px;color:white'></i>
-                </li>
-
-                    <div id="profile-items" class="collapse" >
-
-                          <li>
-                            <a class="sub" id="lista" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/crearCategoria.php" >
-                              Crear Caterogia
-                            </a>
-                          </li>
-
-                          <li>
-                            <a class="sub" id="lista" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/seleccionarCategoria.php">
-                              Editar Categoria
-                            </a>
-                          </li>
-                    </div>
-                <li>   <a id="lista" class="linea" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/informe.php">
-                  Generar Informe
-                </a>
-                </li>
-
-                <li><a id="lista" class="linea" id="barra" href=<?php $_SERVER["DOCUMENT_ROOT"]?>"/vistas/modulo/cambiarContrasenaAdmin.php">
-                  Cambiar Contraseña
-                </a>
-                </li>
-
-          </ul>
-      </div>
-      -->
   </body>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
