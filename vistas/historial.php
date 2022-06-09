@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/ConvocatoriaControlador.php';
+require_once '../controladores/ConvocatoriaControlador.php';
 session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
@@ -12,14 +12,12 @@ $count=count($historial);
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/tabla.css">
+    <link rel="stylesheet" href="css/tabla.css">
     <title>Historial</title>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="../js/alertas.js"></script>
   </head>
-  <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+  <body>
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
       <aside class="">
         <?php include 'BarraLateralAdministrador.php'; ?>
@@ -55,8 +53,5 @@ $count=count($historial);
 
       </section>
 
-      <footer>
-          <?php include '../footer.php'; ?>
-      </footer>
   </body>
 </html>

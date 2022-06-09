@@ -12,7 +12,7 @@
 
 <body>
   <header>
-    <?php include 'HeaderLogin.php' ?>
+    <?php include 'Header.php' ?>
   </header>
   <section>
     <div class="container">
