@@ -19,7 +19,7 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
   <body>
 
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php' ?>
@@ -49,8 +49,5 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
    } ?>
   </table>
 </section>
-    <footer>
-      <?php include '../footer.php'; ?>
-    </footer>
   </body>
 </html>
