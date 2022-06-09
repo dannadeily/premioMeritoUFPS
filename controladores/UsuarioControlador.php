@@ -34,12 +34,12 @@ class UsuarioControlador
 
 
       if ($this->model->agregarUsuario($usuario) > 0) {
-        header("location:../vistas/modulo/registrar.php?msg=registrado");
+        header("location:../vistas/registrar.php?msg=registrado");
       } else {
-        header("location:../vistas/modulo/registrar.php?msg=existe");
+        header("location:../vistas/registrar.php?msg=existe");
       }
     } else {
-      header("location:../vistas/modulo/registrar.php?msg=incompletos");
+      header("location:../vistas/registrar.php?msg=incompletos");
     }
   }
 
@@ -65,15 +65,15 @@ class UsuarioControlador
 
         $exito = mail($destinatario, $asunto, $mensaje, $headers);
         if ($exito) {
-          header("location:../vistas/modulo/recuperar.php?msg=enviado");
+          header("location:../vistas/recuperar.php?msg=enviado");
         } else {
-          header("location:../vistas/modulo/recuperar.php?msg=tarde");
+          header("location:../vistas/recuperar.php?msg=tarde");
         }
       } else {
-        header("location:../vistas/modulo/recuperar.php?msg=incorrecto");
+        header("location:../vistas/recuperar.php?msg=incorrecto");
       }
     } else {
-      header("location:../vistas/modulo/recuperar.php?msg=incompletos");
+      header("location:../vistas/recuperar.php?msg=incompletos");
     }
   }
 
@@ -87,17 +87,17 @@ class UsuarioControlador
         $_SESSION['usuario'] = $_POST['codigo'];
         $_SESSION['rol'] = $usuario[0]->rol;
         if ($_SESSION['rol'] == "Estudiante" || $_SESSION['rol'] == "Egresado") {
-          header("location:../vistas/modulo/datosPersonales.php");
+          header("location:../vistas/datosPersonales.php");
         } else {
           if ($_SESSION['rol'] == "administrador") {
-            header("location:../vistas/modulo/historial.php");
+            header("location:../vistas/historial.php");
           }
         }
       } else {
-        header("location:../vistas/modulo/iniciar.php?msg=incorrecto");
+        header("location:../vistas/iniciar.php?msg=incorrecto");
       }
     } else {
-      header("location:../vistas/modulo/iniciar.php?msg=incompletos");
+      header("location:../vistas/iniciar.php?msg=incompletos");
     }
   }
   public function cerrarSesion()
@@ -119,7 +119,7 @@ class UsuarioControlador
       'tipoDocumento' => $_POST['tipoDocumento']
     );
     $this->model->editarDatos($editar);
-    header("location:../vistas/modulo/datosPersonales.php?msg=actualizado");
+    header("location:../vistas/datosPersonales.php?msg=actualizado");
   }
   public function cambiarContrasena()
   {
@@ -128,15 +128,15 @@ class UsuarioControlador
     if (password_verify($_POST['actual'], $usuario[0]->contrasena) && $_POST['nueva1'] == $_POST['nueva2']) {
       $this->model->cambiarContrasena($_SESSION['usuario'], password_hash($_POST['nueva1'], PASSWORD_DEFAULT));
       if ($_SESSION['rol'] != "administrador") {
-        header("location:../vistas/modulo/cambiarContrasena.php?msg=actualizado");
+        header("location:../vistas/cambiarContrasena.php?msg=actualizado");
       } else {
-        header("location:../vistas/modulo/cambiarContrasenaAdmin.php?msg=actualizado");
+        header("location:../vistas/cambiarContrasenaAdmin.php?msg=actualizado");
       }
     } else {
       if ($_SESSION['rol'] != "administrador") {
-        header("location:../vistas/modulo/cambiarContrasena.php?msg=incorrecto");
+        header("location:../vistas/cambiarContrasena.php?msg=incorrecto");
       } else {
-        header("location:../vistas/modulo/cambiarContrasenaAdmin.php?msg=incorrecto");
+        header("location:../vistas/cambiarContrasenaAdmin.php?msg=incorrecto");
       }
     }
   }

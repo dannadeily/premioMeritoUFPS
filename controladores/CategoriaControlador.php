@@ -25,7 +25,7 @@ class CategoriaControlador
     } else {
       $this->model->estado($_GET["id"], 0);
     }
-    header("location:../vistas/modulo/seleccionarCategoria.php");
+    header("location:../vistas/seleccionarCategoria.php");
   }
   public function crearCategoria()
   {
@@ -36,12 +36,12 @@ class CategoriaControlador
         'rol' => $_POST['rol']
       );
       if ($this->model->crearCategoria($categoria) > 0) {
-        header("location:../vistas/modulo/seleccionarCategoria.php?msg=registrado");
+        header("location:../vistas/seleccionarCategoria.php?msg=registrado");
       } else {
-        header("location:../vistas/modulo/crearCategoria.php?msg=existe");
+        header("location:../vistas/crearCategoria.php?msg=existe");
       }
     } else {
-      header("location:../vistas/modulo/crearCategoria.php?msg=incompletos");
+      header("location:../vistas/crearCategoria.php?msg=incompletos");
     }
   }
   public function editar()
@@ -55,12 +55,12 @@ class CategoriaControlador
 
 
       if ($this->model->editar($categoria) > 0) {
-        header("location:../vistas/modulo/seleccionarCategoria.php?msg=actualizado");
+        header("location:../vistas/seleccionarCategoria.php?msg=actualizado");
       } else {
-        header("location:../vistas/modulo/crearCategoria.php?msg=existe");
+        header("location:../vistas/crearCategoria.php?msg=existe");
       }
     } else {
-      header("location:../vistas/modulo/crearCategoria.php?msg=incompletos");
+      header("location:../vistas/crearCategoria.php?msg=incompletos");
     }
   }
 }

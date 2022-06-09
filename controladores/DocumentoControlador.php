@@ -28,9 +28,9 @@ class DocumentoControlador
         'descripcion' => $_POST['descripcion']
       );
       $this->model->guardarDocumento($documentos);
-      header("location:../vistas/modulo/DocumentosCategoria.php?id=" . $_POST['id'] . "&&msg=registrado");
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_POST['id'] . "&&msg=registrado");
     } else {
-      header("location:../vistas/modulo/DocumentosCategoria.php?id=" . $_POST['id'] . "&&msg=incompletos");
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_POST['id'] . "&&msg=incompletos");
     }
   }
 
@@ -39,9 +39,9 @@ class DocumentoControlador
 
     if (!empty($_GET['idDoc']) && !empty($_GET['id'])) {
       $this->model->borrarDocumento($_GET['idDoc']);
-      header("location:../vistas/modulo/DocumentosCategoria.php?id=" . $_GET['id'] . "&&msg=borrado");
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_GET['id'] . "&&msg=borrado");
     } else {
-      header("location:../vistas/modulo/DocumentosCategoria.php?id=" . $_GET['id'] . "&&msg=noborrado");
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_GET['id'] . "&&msg=noborrado");
     }
   }
   public function guardarArchivo()
@@ -54,7 +54,7 @@ class DocumentoControlador
     $i = 0;
     foreach ($_FILES as $archivo => $atributo) {
       if ($atributo["size"] > $limite_kb * 1024 || $atributo["type"] != $permitidos) {
-        header("location:../vistas/modulo/inscripciones.php?msg=tamañosmayores");
+        header("location:../vistas/inscripciones.php?msg=tamañosmayores");
         return;
       }
     }
@@ -78,7 +78,7 @@ class DocumentoControlador
           $resultado = move_uploaded_file($atributo["tmp_name"], $archivo);
         }
         $postulado->inscribir($_GET["cc"]);
-        header("location:../vistas/modulo/inscripciones.php?msg=registrado");
+        header("location:../vistas/inscripciones.php?msg=registrado");
       }
     }
   }
@@ -98,9 +98,9 @@ class DocumentoControlador
         'id' => $_POST["id"]
       );
       $this->model->editar($documento);
-      header("location:../vistas/modulo/seleccionarCategoria.php?msg=actualizado");
+      header("location:../vistas/seleccionarCategoria.php?msg=actualizado");
     } else {
-      header("location:../vistas/modulo/seleccionarCategoria.php?msg=incompletos");
+      header("location:../vistas/seleccionarCategoria.php?msg=incompletos");
     }
   }
 }
