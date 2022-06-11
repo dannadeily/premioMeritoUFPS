@@ -13,7 +13,7 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/calificar.css">
+    <link rel="stylesheet" href="css/tabla.css">
     <link rel="stylesheet" href="css/main.css">
     <title></title>
     <!-- Favicons -->
