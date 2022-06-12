@@ -13,7 +13,9 @@ a {
   color: #000000;
   text-decoration: none;
 }
-
+.sidebar-nav .nav-item {
+  margin-bottom: 5px;
+}
 a:hover {
   color: #000000;
   text-decoration: none;
@@ -154,4 +156,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 .sidebar-nav .nav-content a.active i {
   background-color: #4154f1;
+}
+.nav-tabs-bordered .nav-link {
+  margin-bottom: -2px;
+  border: none;
+  color: #2c384e;
+}
+.nav-tabs-bordered .nav-link:hover, .nav-tabs-bordered .nav-link:focus {
+  color: #4154f1;
+}
+.nav-tabs-bordered .nav-link.active {
+  background-color: #fff;
+  color: #4154f1;
+  border-bottom: 2px solid #4154f1;
 }
