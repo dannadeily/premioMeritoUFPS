@@ -1,7 +1,7 @@
 <?php
-require_once '../../controladores/ConvocatoriaCategoriaControlador.php';
-require_once '../../controladores/CategoriaControlador.php';
-require_once '../../controladores/DocumentoControlador.php';
+require_once '../controladores/ConvocatoriaCategoriaControlador.php';
+require_once '../controladores/CategoriaControlador.php';
+require_once '../controladores/DocumentoControlador.php';
 session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])||($_SESSION['rol']!="Estudiante"&&$_SESSION['rol']!="Egresado")) {
   header("location:iniciar.php");
@@ -27,8 +27,10 @@ $count=count($listar);
      <title>convocatorias vigentes</title>
    </head>
    <body>
+
+     <main id="main" class="main">
      <header>
-       <?php include '../HeaderLogin.php'; ?>
+       <?php include 'HeaderLogin.php'; ?>
      </header>
        <aside class="">
          <?php include 'barraLateralUsuario.php'; ?>
@@ -104,7 +106,7 @@ $count=count($listar);
        </section>
 
 </div>
-
+</main> 
        <footer>
          <?php include '../footer.php'; ?>
        </footer>

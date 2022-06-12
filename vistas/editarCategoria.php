@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/CategoriaControlador.php';
+require_once '../controladores/CategoriaControlador.php';
 
 session_start();
 
@@ -14,15 +14,17 @@ $listar=$categoria->listar($_GET["id"]);
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/editarCategoria.css">
+    <link rel="stylesheet" href="css/editarCategoria.css">
     <title>Editar categoria</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="../js/alertas.js"></script>
   </head>
 
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
       <aside class="">
         <?php include 'BarraLateralAdministrador.php'; ?>
@@ -45,9 +47,9 @@ $listar=$categoria->listar($_GET["id"]);
 
       </section>
 
-
+    </main>
   <footer>
-        <?php include '../footer.php'; ?>
+        <?php include 'footer.php'; ?>
       </footer>
   </body>
 </html>

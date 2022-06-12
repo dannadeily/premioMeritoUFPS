@@ -21,8 +21,10 @@ else {
   </head>
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
 
+    <main id="main" class="main">
+
 <header>
-<?php include '../HeaderLogin.php'; ?>
+<?php include 'HeaderLogin.php'; ?>
 </header>
 
   <aside class="">
@@ -44,6 +46,7 @@ else {
     </form>
 
   </section>
+</main>
 <footer>
 <?php include '../footer.php'; ?>
 </footer>

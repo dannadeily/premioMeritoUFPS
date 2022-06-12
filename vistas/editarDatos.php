@@ -16,12 +16,12 @@ else {
   <head>
     <meta charset="utf-8">
     <title>editar datos</title>
-    <link rel="stylesheet" href="../css/editarDatos.css">
+    <link rel="stylesheet" href="css/editarDatos.css">
   </head>
   <body>
-
+    <main id="main" class="main">
           <header>
-            <?php require  '../HeaderLogin.php'?>
+            <?php require  'HeaderLogin.php'?>
           </header>
           <aside class="">
               <?php require  'barraLateralUsuario.php'; ?>
@@ -31,7 +31,7 @@ else {
 
             <section id="container-editar"  >
 
-                  <form class="form_register-editar" action="../../controladores/router.php?con=UsuarioControlador&fun=editarDatos" method="post">
+                  <form class="form_register-editar" action="../controladores/router.php?con=UsuarioControlador&fun=editarDatos" method="post">
 
                     <h2>Datos Personales</h1>
                     <hr>
@@ -73,10 +73,11 @@ else {
                    </form>
 
     </section>
+  </main>
 <br>
 <br>
         <footer>
-          <?php require '../footer.php'; ?>
+          <?php require 'footer.php'; ?>
         </footer>
   </body>
 </html>

@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])||($_SESSION['rol']!="Estudiante"&&$_SESSION['rol']!="Egresado")) {
   header("location:iniciar.php");
 }
-include '../../controladores/PostuladosControlador.php';
+include '../controladores/PostuladosControlador.php';
 $postulados=new PostuladosControlador();
 $postulaciones=$postulados->listar($_SESSION['usuario']);
 $count=count($postulaciones);
@@ -13,14 +13,16 @@ $count=count($postulaciones);
   <head>
     <html lang="es" dir="ltr">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/inscripcion.css">
+    <link rel="stylesheet" href="css/inscripcion.css">
     <title>Inscripciones</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="../js/alertas.js"></script>
   </head>
+
+  <main id="main" class="main">
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'barraLateralUsuario.php' ?>
@@ -49,9 +51,9 @@ $count=count($postulaciones);
       </table>
     </section>
 
-
+  </main>
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>
   </body>
 </html>

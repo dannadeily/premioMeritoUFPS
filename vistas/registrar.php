@@ -8,9 +8,11 @@ session_destroy();
     <meta charset="utf-8">
     <title> Registro</title>
     <link rel="stylesheet" href="css/registrar.css">
-        <script src="../js/alertas.js"></script>
+        <script src="js/alertas.js"></script>
   </head>
   <body>
+
+    <main id="main" class="main">
     <header>
     <?php   require 'Header.php';?>
     </header>
@@ -20,7 +22,7 @@ session_destroy();
               <h2>Registro usuario</h2>
 
               <hr>
-               <form id="form-registrar" action="../../controladores/router.php?con=UsuarioControlador&fun=agregarUsuario" method="post">
+               <form id="form-registrar" action="../controladores/router.php?con=UsuarioControlador&fun=agregarUsuario" method="post">
 
                       <table>
                       <tr>
@@ -75,6 +77,6 @@ session_destroy();
                </form>
              </div>
               </section>
-
+ </main>
   </body>
 </html>

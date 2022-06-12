@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/ConvocatoriaControlador.php';
+require_once '../controladores/ConvocatoriaControlador.php';
 session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
@@ -23,8 +23,9 @@ $historial=$convocatoria->historial($_GET["id"]);
     <title> Editar Convocatoria</title>
 </head>
 <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+  <main id="main" class="main">
   <header>
-    <?php include '../HeaderLogin.php'; ?>
+    <?php include 'HeaderLogin.php'; ?>
   </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php'; ?>
@@ -82,9 +83,9 @@ $historial=$convocatoria->historial($_GET["id"]);
            </form>
 
     </section>
-
+ </main>
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>
 </body>
 </html>

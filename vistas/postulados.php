@@ -18,14 +18,15 @@ if (!empty($_GET["cc"])) {
   <head>
 
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/tabla.css">
+    <link rel="stylesheet" href="css/tabla.css">
 
     <title> Postulados </title>
 
   </head>
   <body>
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside>
       <?php include 'BarraLateralAdministrador.php'; ?>
@@ -46,7 +47,7 @@ if (!empty($_GET["cc"])) {
     <?php for ($i=0; $i < count($lista)-1 ; $i++) {
       if ($lista[$i]->id_convocatoria_categoria==$_GET["cc"]) {
         ?>
-        <form class="" action="../../controladores/?con=PostuladosControlador&fun=calificar" method="post">
+        <form class="" action="../controladores/?con=PostuladosControlador&fun=calificar" method="post">
         <tr>
           <td> <?php echo $lista[$i]->codigo_usuario ?>  </td>
           <td> <?php echo $lista[$i]->fecha_postulacion ?>  </td>
@@ -62,8 +63,9 @@ if (!empty($_GET["cc"])) {
 
 
     </section>
+  </main>
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>
   </body>
 </html>

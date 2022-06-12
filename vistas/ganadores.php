@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
 }
-require_once '../../controladores/ConvocatoriaControlador.php';
+require_once '../controladores/ConvocatoriaControlador.php';
 $convocatoria= new ConvocatoriaControlador();
 $ganadores=$convocatoria->ganadores($_GET["conv"]);
 ?>
@@ -11,12 +11,14 @@ $ganadores=$convocatoria->ganadores($_GET["conv"]);
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/tabla.css">
+    <link rel="stylesheet" href="css/tabla.css">
     <title>Ganadores</title>
   </head>
   <body>
+
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php';  ?>
@@ -48,8 +50,9 @@ $ganadores=$convocatoria->ganadores($_GET["conv"]);
 
 
     </section>
+  </main>
     <footer>
-        <?php include '../footer.php'; ?>
+        <?php include 'footer.php'; ?>
     </footer>
   </body>
 </html>

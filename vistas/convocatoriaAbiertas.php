@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/ConvocatoriaControlador.php';
+require_once '../controladores/ConvocatoriaControlador.php';
 $convocatoria=new ConvocatoriaControlador();
 $historial=$convocatoria->convocatoriasAbiertas();
 $count=count($historial);
@@ -18,9 +18,9 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| ($_SESSION['rol'
      <title>convocatorias</title>
    </head>
    <body>
-     
+     <main id="main" class="main">
      <header>
-       <?php include '../HeaderLogin.php'; ?>
+       <?php include 'HeaderLogin.php'; ?>
      </header>
        <aside class="">
          <?php include 'barraLateralUsuario.php'; ?>
@@ -51,9 +51,9 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| ($_SESSION['rol'
        </table>
 
         </section>
-
+      </main>
      <footer>
-         <?php include '../footer.php'; ?>
+         <?php include 'footer.php'; ?>
        </footer>
    </body>
  </html>

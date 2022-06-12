@@ -27,6 +27,8 @@ $datos=$usuario->listar($_SESSION['usuario']);
   </header>
   <body >
 
+    <main id="main" class="main">
+
             <aside class="barra-menu">
             <?php include 'barraLateralUsuario.php'; ?>
           </aside>
@@ -80,5 +82,6 @@ $datos=$usuario->listar($_SESSION['usuario']);
                       <button class="button" onclick="location.href='editarDatos.php'">Editar</button>
 
     </section>
+  </main>
   </body>
 </html>

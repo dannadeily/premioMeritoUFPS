@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/DocumentoControlador.php';
+require_once '../controladores/DocumentoControlador.php';
 
 session_start();
 
@@ -14,17 +14,18 @@ $count=count($informacion);
 <html lang="es" dir="ltr">
   <head>
 
-    <link rel="stylesheet" href="../css/documentosCategoria.css">
-    <link rel="stylesheet" href="../css/tabla.css">
+    <link rel="stylesheet" href="css/documentosCategoria.css">
+    <link rel="stylesheet" href="css/tabla.css">
     <meta charset="utf-8">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="../js/alertas.js"></script>
     <title> requisitos </title>
   </head>
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+    <main id="main" class="main">
 
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php'; ?>
@@ -81,9 +82,10 @@ $count=count($informacion);
     </table>
   </section>
 
+</main>
 
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>
   </body>
 </html>

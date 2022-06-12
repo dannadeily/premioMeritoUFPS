@@ -6,8 +6,8 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 if (empty($_GET["conv"])) {
   header("location:../vistas/modulo/historial.php");
 }
-require_once '../../controladores/ConvocatoriaCategoriaControlador.php';
-require '../../controladores/ConvocatoriaControlador.php';
+require_once '../controladores/ConvocatoriaCategoriaControlador.php';
+require '../controladores/ConvocatoriaControlador.php';
 $convocatoria=new ConvocatoriaControlador();
 $lista=$convocatoria->informe($_GET["conv"]);
 $categoriascon=new ConvocatoriaCategoriaControlador();
@@ -18,14 +18,15 @@ $count=count($listar);
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/tabla.css">
-    <link rel="stylesheet" href="../css/participantes.css">
+    <link rel="stylesheet" href="css/tabla.css">
+    <link rel="stylesheet" href="css/participantes.css">
     <title>Participantes</title>
   </head>
   <body>
+    <main id="main" class="main">
     <header>
 
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php';  ?>
@@ -89,7 +90,7 @@ $count=count($listar);
 
     </table>
     </section>
-
+  </main>
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>

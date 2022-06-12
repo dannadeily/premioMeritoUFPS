@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/CategoriaControlador.php';
+require_once '../controladores/CategoriaControlador.php';
 
 session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])||$_SESSION['rol']!="administrador") {
@@ -14,7 +14,17 @@ $count=count($listar);
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/seleccionarCategoria.css">
+    <link rel="stylesheet" href="seleccionarCategoria.css">
+    <link rel="stylesheet" href="css/tabla.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
       <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title> Categorias </title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -22,17 +32,38 @@ $count=count($listar);
   </head>
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
 
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
       <aside class="">
         <?php include 'BarraLateralAdministrador.php'; ?>
       </aside>
+      <section class="section">
+        <div class="row">
+              <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Seleccionar categorias</h5>
 
-
-      <section id="container-seleccionarC">
-        <legend> Seleccionar categorias </legend>
-        <table id="customers-seleccionarC">
+      <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+        <div class="dataTable-top">
+          <div class="dataTable-dropdown">
+            <label>
+              <select class="dataTable-selector">
+              <option value="5">5</option>
+              <option value="10" selected="">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select> entries per page</label>
+          </div>
+          <div class="dataTable-search">
+            <input class="dataTable-input" placeholder="Search..." type="text">
+          </div>
+        </div>
+        <div class="dataTable-container">
+          <table class="table datatable dataTable-table">
+            <thead>
           <tr>
             <th>nombre</th>
             <th>estado</th>
@@ -40,7 +71,8 @@ $count=count($listar);
             <th>documentos requeridos</th>
             <th>editar</th>
           </tr>
-
+        </thead>
+        <tbody>
         <?php for ($i=0; $i < $count-1; $i++) { ?>
           <tr>
             <td> <?php echo $listar[$i]->nombre; ?> </td>
@@ -59,15 +91,29 @@ $count=count($listar);
           </tr>
           </form>
         <?php } ?>
+      </tbody>
+         </table>
+       </div>
+       <div class="dataTable-bottom">
+         <div class="dataTable-info">Showing 1 to 5 of 5 entries
+         </div>
+         <nav class="dataTable-pagination">
+           <ul class="dataTable-pagination-list">
+           </ul>
+         </nav>
+       </div>
+      </div>
+      </div>
+      </div>
+      </div>
 
-        </table>
       </section>
-
+    </main>
       <footer>
-          <?php include '../footer.php'; ?>
+          <?php include 'footer.php'; ?>
       </footer>
 
 
   </body>
-
+  <script src="js/main.js"></script>
 </html>

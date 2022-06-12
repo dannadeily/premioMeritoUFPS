@@ -11,7 +11,7 @@ session_destroy();
 
   </head>
   <body>
-
+ <main id="main" class="main">
 
       <?php require 'Header.php'; ?>
     </header>
@@ -58,5 +58,7 @@ session_destroy();
         </section>
 
       </div>
+
+    </main>
   </body>
 </html>

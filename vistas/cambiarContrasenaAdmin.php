@@ -16,14 +16,16 @@ else {
   <head>
     <meta charset="utf-8">
     <title> cambiar contraseña </title>
-    <link rel="stylesheet" href="../css/iniciar.css">
+    <link rel="stylesheet" href="css/iniciar.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="../js/alertas.js"></script>
   </head>
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
 
+    <main id="main" class="main">
+
 <header>
-<?php include '../HeaderLogin.php'; ?>
+<?php include 'HeaderLogin.php'; ?>
 </header>
 
   <aside class="">
@@ -45,8 +47,9 @@ else {
     </form>
 
   </section>
+</main>
 <footer>
-<?php include '../footer.php'; ?>
+<?php include 'footer.php'; ?>
 </footer>
   </body>
 </html>

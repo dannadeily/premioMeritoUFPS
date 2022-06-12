@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
 }
-require_once '../../controladores/DocumentoControlador.php';
+require_once '../controladores/DocumentoControlador.php';
 $documento=new DocumentoControlador();
 $informacion=$documento->buscar($_GET['id']);
 $count=count($informacion);
@@ -17,21 +17,22 @@ $count=count($informacion);
 
     <title>Editar documento</title>
 
-    <link rel="stylesheet" href="../css/editarCategoria.css">
+    <link rel="stylesheet" href="css/editarCategoria.css">
     <title>Editar documento</title>
 
 
   </head>
   <body>
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php'; ?>
     </aside>
 
     <section id="container-editarC">
-      <form class="" action="../../controladores/router.php?con=DocumentoControlador&fun=editar" method="post">
+      <form class="" action="../controladores/router.php?con=DocumentoControlador&fun=editar" method="post">
         <p> Nombre </p>
         <input type="hidden" name="id" value="<?php echo $informacion[0]->id_documento; ?>">
         <input class="input-nombre" type="text" name="nombre" value="<?php echo $informacion[0]->nombre; ?>">
@@ -41,9 +42,9 @@ $count=count($informacion);
         <p id="button-categoria"><input type="submit" name="continuar" value="actualizar"></p>
       </form>
     </section>
-
+  </main>
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>
   </body>
 </html>

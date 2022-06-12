@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
 }
-$ruta="../../documentos/".$_GET["conv"]."/".$_GET["cat"]."/".$_GET["usuario"];
+$ruta="../documentos/".$_GET["conv"]."/".$_GET["cat"]."/".$_GET["usuario"];
 ?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
@@ -11,12 +11,13 @@ $ruta="../../documentos/".$_GET["conv"]."/".$_GET["cat"]."/".$_GET["usuario"];
     <meta charset="utf-8">
     <title> Documentos cargados </title>
 
-      <link rel="stylesheet" href="../css/modalNota.css">
-      <link rel="stylesheet" href="../css/tabla.css">
+      <link rel="stylesheet" href="css/modalNota.css">
+      <link rel="stylesheet" href="css/tabla.css">
   </head>
   <body>
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside>
       <?php include 'BarraLateralAdministrador.php'; ?>
@@ -38,7 +39,7 @@ $ruta="../../documentos/".$_GET["conv"]."/".$_GET["cat"]."/".$_GET["usuario"];
             </header>
             <label for="button-editar">X</label>
               <div class="Contenido">
-                <form class="" action="../../controladores/router.php?con=PostuladosControlador&fun=calificar" method="post">
+                <form class="" action="../controladores/router.php?con=PostuladosControlador&fun=calificar" method="post">
                 <input type="hidden" name="codigo" value="<?php echo $_GET["usuario"] ?>"></p>
                 <p id="notamodal">  <input type="number" name="nota" placeholder="Inserte la nota"  max="5.0" step="any"> </p>
                 <p id="inpmodal"> <input type="submit" name="calificar" value="calificar" id="inpmodal" ></p>
@@ -77,8 +78,8 @@ $ruta="../../documentos/".$_GET["conv"]."/".$_GET["cat"]."/".$_GET["usuario"];
 
 
     </section>
-
+ </main>
     <footer>
-      <?php include '../footer.php'; ?>
+      <?php include 'footer.php'; ?>
     </footer>
     </body>

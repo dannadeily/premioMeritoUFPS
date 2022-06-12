@@ -1,5 +1,5 @@
 <?php
-require_once '../../controladores/ConvocatoriaControlador.php';
+require_once '../controladores/ConvocatoriaControlador.php';
 session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
@@ -18,8 +18,10 @@ $count=count($historial);
     <script src="../js/alertas.js"></script>
   </head>
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+
+    <main id="main" class="main">
     <header>
-      <?php include '../HeaderLogin.php'; ?>
+      <?php include 'HeaderLogin.php'; ?>
     </header>
       <aside class="">
         <?php include 'BarraLateralAdministrador.php'; ?>
@@ -27,7 +29,7 @@ $count=count($historial);
 
 
         <section id="container-historial">
-        
+
         <legend id="titulo-tabla">Generar informes</legend>
 
 
@@ -48,17 +50,17 @@ $count=count($historial);
             <td> <?php echo $historial[$i]->descripcion; ?> </td>
             <td> <?php echo $historial[$i]->fecha_inicio; ?> </td>
             <td> <?php echo $historial[$i]->fecha_fin; ?> </td>
-            <td> <a href="../../controladores/informe.php?conv=<?php echo $historial[$i]->id_convocatoria;  ?>" target="_blank">Participantes  </a>
+            <td> <a href="../controladores/informe.php?conv=<?php echo $historial[$i]->id_convocatoria;  ?>" target="_blank">Participantes  </a>
                 <br>
-                 <a href="../../controladores/informeGanadores.php?conv=<?php echo $historial[$i]->id_convocatoria;  ?>"  target="_blank">Ganadores</a></td>
+                 <a href="../controladores/informeGanadores.php?conv=<?php echo $historial[$i]->id_convocatoria;  ?>"  target="_blank">Ganadores</a></td>
           </tr>
         <?php } ?>
         </table>
         </section>
-        
-        
+
+      </main>
       <footer>
-          <?php include '../footer.php'; ?>
+          <?php include 'footer.php'; ?>
       </footer>
   </body>
 </html>
