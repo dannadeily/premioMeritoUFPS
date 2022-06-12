@@ -52,3 +52,9 @@
 .dashboard .top-selling .table tbody td {
   vertical-align: middle;
 }
+.dashboard .recent-sales .dataTable-top {
+  padding: 0 0 10px 0;
+}
+.dashboard .recent-sales .dataTable-bottom {
+  padding: 10px 0 0 0;
+}
