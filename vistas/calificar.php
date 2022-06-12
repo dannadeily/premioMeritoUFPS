@@ -36,7 +36,6 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
       <?php include 'BarraLateralAdministrador.php' ?>
     </aside>
 
-
     <section class="section">
       <div class="row">
             <div class="card">
@@ -97,7 +96,9 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
              </nav>
            </div>
          </div>
-
+</div>
+</div>
+</div>
 
 </section>
 

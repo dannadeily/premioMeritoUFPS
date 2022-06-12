@@ -11,7 +11,8 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../css/crearConvocatoria.css">
+    <link rel="stylesheet" href="css/crearConvocatoria.css">
+    <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="../js/alertas.js"></script>
@@ -19,64 +20,75 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 </head>
 <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
 
+<main id="main" class="main">
   <header>
-    <?php include '../HeaderLogin.php'; ?>
+    <?php include 'HeaderLogin.php'; ?>
   </header>
     <aside class="">
       <?php include 'BarraLateralAdministrador.php'; ?>
     </aside>
 
-    <section class="container">
-
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-6">
 
       <form class="form_register" action="../../controladores/router.php?con=ConvocatoriaControlador&fun=crearConvocatoria"  method="post" enctype="multipart/form-data">
           <fieldset class="border p-2">
-           <legend>Crear Convocatoria:</legend>
-      <table id="tabla-convocatoria">
-        <tr>
-          <td>
-            <label class="form-label" for="titulo">Titulo</label>
-            <input type="text" id="titulo" name="titulo" required/>
-          </td>
+             <h5 class="card-title">Crear convocatoria</h5>
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">Titulo</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control">
+              </div>
+            </div>
 
-          <td>
-            <label for="CargarImagen" class="form-label">Cargar Imagen</label>
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">Cargar imagen</label>
+              <div class="col-sm-10">
             <input name="imagen" type="file" id="CargarImagen"  accept="image/*" required>
-          </td>
-        </tr>
+              </div>
 
-        <tr colspan="2"  >
-          <td >
-            <label  class="form-label" for="form4Example3">Descripcion</label>
+              </div>
+
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">Descripcion</label>
+              <div class="col-sm-10">
             <textarea style="resize: none" cols="50" width="auto" name="descripcion"  required id="form4Example3" rows="4"></textarea>
-          </td>
-          <td></td>
+     </div>
+   </div>
 
-        </tr>
-
-        <tr>
-          <td>
-            <label for="FechaInicio">Fecha de Inicio:</label>
-            <p id="input-fecha"><input type="date" id="FechaInicio" name="fecha_inicio" class="form-control"></p>
-
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">Fecha de inicio: </label>
+              <div class="col-sm-10">
+                <p id="input-fecha"><input type="date" id="FechaInicio" name="fecha_inicio" class="form-control"></p>
+              </div>
+            </div>
          </td>
 
           <td>
-            <label for="FechaCierre">Fecha de cierre:</label>
-              <p id="input-fecha"><input type="date" id="FechaCierre" name="fecha_fin" class="form-control"></p>
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">Fecha de cierre: </label>
+              <div class="col-sm-10">
+                <p id="input-fecha"><input type="date" id="FechaInicio" name="fecha_inicio" class="form-control"></p>
+              </div>
+            </div>
 
-        </td>
-        </tr>
-      </table>
                   <br>
-            <p id="button-convocatoria"> <input type="submit" value="Enviar" name="enviar"></p>
+                  <div class="row mb-3">
 
-            </fieldset>
+                  <div class="col-sm-10">
+                    <p id="button-convocatoria"> <input type="submit" value="Enviar" name="enviar"></p>
+                  </div>
+                </div>
            </form>
 
+</div>
+</div>
     </section>
-    <footer>
-      <?php include '../footer.php'; ?>
-    </footer>
+
+
+    </main>
+    <?php include 'footer.php' ?>
+
 </body>
 </html>
