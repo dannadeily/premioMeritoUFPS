@@ -39,8 +39,25 @@ $count=count($historial);
               <div class="card-body">
                 <h5 class="card-title">Historial de convocatorias</h5>
 
-                <!-- Default Table -->
-                <table class="table">
+                <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+                  <div class="dataTable-top">
+                    <div class="dataTable-dropdown">
+                      <label>
+                        <select class="dataTable-selector">
+                        <option value="5">5</option>
+                        <option value="10" selected="">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                      </select> entries per page</label>
+                    </div>
+                    <div class="dataTable-search">
+                      <input class="dataTable-input" placeholder="Search..." type="text">
+                    </div>
+                  </div>
+                  <div class="dataTable-container">
+                    <table class="table datatable dataTable-table">
+
                   <thead>
                     <tr>
                       <th>Titulo</th>
@@ -63,12 +80,20 @@ $count=count($historial);
                       </tr>
                     <?php } ?>
                   </tbody>
-                </table>
-                <!-- End Default Table Example -->
-              </div>
-            </div>
-          </div>
-    </section>
+                     </table>
+                   </div>
+                   <div class="dataTable-bottom">
+                     <div class="dataTable-info">Showing 1 to 5 of 5 entries
+                     </div>
+                     <nav class="dataTable-pagination">
+                       <ul class="dataTable-pagination-list">
+                       </ul>
+                     </nav>
+                   </div>
+                 </div>
+
+
+        </section>
   </main>
   </body>
 </html>
