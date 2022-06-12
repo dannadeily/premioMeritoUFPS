@@ -103,7 +103,7 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 </section>
 
 </main>
-
+<?php include 'footer.php' ?>
 
 </script>
   </body>
