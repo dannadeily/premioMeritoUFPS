@@ -14,7 +14,7 @@ $count=count($listar);
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="seleccionarCategoria.css">
+    <link rel="stylesheet" href="css/seleccionarCategoria.css">
     <link rel="stylesheet" href="css/tabla.css">
     <link rel="stylesheet" href="css/main.css">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@ $count=count($listar);
       <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title> Categorias </title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="../js/alertas.js"></script>
+      <script src="js/alertas.js"></script>
   </head>
   <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
 
@@ -85,6 +85,8 @@ $count=count($listar);
               <td> <a href=> <abbr title="Activar"><input class=" " style="background-color:#FF0000" type="submit" name="estado" value="D"> </abbr> </a> </td>
             <?php
           }  ?>
+
+
             <td><?php echo $listar[$i]->rol; ?></td>
             <td> <a href="DocumentosCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <abbr title="Visualizar"><i class="fas fa-eye"></i></abbr></a>     </td>
             <td> <a href="editarCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <abbr title="Editar"><i class="fas fa-edit"></i></abbr></a> </td>

@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
 }
-require_once '../../controladores/ConvocatoriaCategoriaControlador.php';
+require_once '../controladores/ConvocatoriaCategoriaControlador.php';
 $convocatoriaCategoria=new ConvocatoriaCategoriaControlador();
 $categoriasActivas=$convocatoriaCategoria->listar($_GET["conv"]);
 $activas=count($categoriasActivas);
@@ -16,8 +16,10 @@ $activas=count($categoriasActivas);
     <link rel="stylesheet" href="../css/calificar.css">
     <title>Categorias</title>
   </head>
-  
+
   <body>
+
+    <main id="main" class="main">
     <header>
       <?php include '../HeaderLogin.php'; ?>
     </header>
@@ -42,7 +44,8 @@ $activas=count($categoriasActivas);
       </table>
 
     </section>
+  </main>
 
     <footer>
-      <?php include '../footer.php' ?>
+      <?php include 'footer.php' ?>
     </footer>

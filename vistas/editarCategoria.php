@@ -15,6 +15,7 @@ $listar=$categoria->listar($_GET["id"]);
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/editarCategoria.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Editar categoria</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="../js/alertas.js"></script>
@@ -29,25 +30,42 @@ $listar=$categoria->listar($_GET["id"]);
       <aside class="">
         <?php include 'BarraLateralAdministrador.php'; ?>
       </aside>
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-6">
 
-      <section id="container-editarC">
+        <form class="" action="../controladores/router.php?con=CategoriaControlador&fun=editar" method="post">
+          <fieldset class="border p-2">
+             <h5 class="card-title">Crear Categoria:</h5>
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">Nombre:</label>
+              <div class="col-sm-10">
+                <input  type="hidden" name="id" value="  <?php echo $listar[0]->id_categoria; ?> ">
+               <input class="input-nombre" type="text" name="nombre" value=" <?php echo $listar[0]->nombre; ?> ">
+              </div>
+            </div>
 
-         <legend>Editar Categoria:</legend>
-         <hr>
-        <form class="" action="../../controladores/router.php?con=CategoriaControlador&fun=editar" method="post">
-          <input  type="hidden" name="id" value="  <?php echo $listar[0]->id_categoria; ?> ">
-        <p> nombre: <input class="input-nombre" type="text" name="nombre" value=" <?php echo $listar[0]->nombre; ?> "></p>
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label">descripcion:</label>
+              <div class="col-sm-10">
+          <textarea style="resize: none" name="descripcion" rows="8" cols="80"><?php echo $listar[0]->descripcion;?></textarea> <br>
+            </div>
+            </div>
 
-        <p> descripcion: </p>
-        <textarea style="resize: none" name="descripcion" rows="8" cols="80"><?php echo $listar[0]->descripcion;?></textarea> <br>
 
-        <p id="button-categoria"><input type="submit" name="continuar" value="actualizar"></p>
+        <div class="row mb-3">
 
-        </form>
+        <div class="col-sm-10">
+          <p id="button-categoria"><input type="submit" name="continuar" value="actualizar"></p>
+        </div>
+      </div>
+        </fieldset>
+     </form>
 
-      </section>
-
-    </main>
+    </div>
+    </div>
+    </section>
+        </main>
   <footer>
         <?php include 'footer.php'; ?>
       </footer>

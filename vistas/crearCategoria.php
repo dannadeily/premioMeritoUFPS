@@ -9,9 +9,10 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
   <head>
     <meta charset="utf-8">
     <title>Crear categoria</title>
-    <link rel="stylesheet" href="../css/crearCategoria.css">
+    <link rel="stylesheet" href="css/crearCategoria.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="../js/alertas.js"></script>
+      <script src="js/alertas.js"></script>
   </head>
   <body  onload="mensaje('<?php echo  $_GET["msg"] ?>')">
     <main id="main" class="main">
@@ -40,7 +41,7 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
                   <label class="col-sm-2 col-form-label">Tipo de usuario:</label>
                   <div class="col-sm-10">
                     <select class="form-select" aria-label="Default select example">
-                      
+
                       <option value="1">Estudiante</option>
                       <option value="2">Egresado</option>
                       </select>
@@ -51,8 +52,8 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
             <label for="inputText" class="col-sm-2 col-form-label">Descripcion</label>
             <div class="col-sm-10">
           <textarea style="resize: none" cols="50" width="auto" name="descripcion"  required id="form4Example3" rows="4"></textarea>
-    </div>
-    </div>
+          </div>
+          </div>
 
 
                 <br>
@@ -62,6 +63,7 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
                   <p id="button-convocatoria"> <input type="submit" value="Enviar" name="enviar"></p>
                 </div>
               </div>
+            </fieldset>
          </form>
 
     </div>
