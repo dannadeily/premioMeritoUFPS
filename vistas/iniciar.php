@@ -1,15 +1,3 @@
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>Entrar</title>
-  <!-- <link rel="stylesheet" href="css/iniciar.css"> -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
-</head>
-
 <body>
 
   <header>
@@ -22,7 +10,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                <a href="" class="logo d-flex align-items-center w-auto">
                   <img src="img/logoufps.png" alt="">
                   <span class="d-none d-lg-block">UFPS</span>
                 </a>
@@ -34,7 +22,7 @@
                     <p class="text-center small">ingresa codigo y contraseña</p>
                   </div>
 
-                  <form action="../controladores/router.php?con=UsuarioControlador&fun=iniciarSesion" method="post" class="row g-3 needs-validation" novalidate>
+                  <form action="../controladores/router.php?con=UsuarioControlador&fun=iniciarSesion" method="post" class="row g-3 needs-validation" >
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Código</label>
@@ -71,10 +59,9 @@
 
   </section>
   <footer>
-    <?php //include 'footer.php'
+    <?php include 'footer.php'
     ?>
   </footer>
-  <script src="../js/alertas.js"> </script>
 </body>
 
 

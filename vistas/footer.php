@@ -12,4 +12,4 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script src="assets/js/main.js"></script>
-  </footer><!-- End Footer -->
+  </footer>
