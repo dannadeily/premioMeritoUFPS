@@ -3,8 +3,8 @@ session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
   header("location:iniciar.php");
 }
-require_once '../../controladores/PostuladosControlador.php';
-require_once '../../controladores/ConvocatoriaCategoriaControlador.php';
+require_once '../controladores/PostuladosControlador.php';
+require_once '../controladores/ConvocatoriaCategoriaControlador.php';
 $postulados=new PostuladosControlador();
 $lista=$postulados->listar();
 if (!empty($_GET["cc"])) {
@@ -12,17 +12,6 @@ if (!empty($_GET["cc"])) {
   $convocatoria=$convocatoriaCategoria->buscar($_GET["cc"]);
 }
  ?>
-
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/tabla.css">
-
-    <title> Postulados </title>
-
-  </head>
   <body>
     <main id="main" class="main">
     <header>
