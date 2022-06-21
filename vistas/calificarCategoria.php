@@ -16,10 +16,10 @@ $activas=count($categoriasActivas);
  </aside>
   <body>
     <main id="main" class="main">
-    <section class="section">
-</div>
+<section class="section">
+ </div>
 
-<div class="row">
+  <div class="row">
   <div class="col-lg-12">
 
     <div class="card">
@@ -50,7 +50,7 @@ $activas=count($categoriasActivas);
     </div>
 
   </div>
-</div>
+  </div>
 
 </section>
   </main>

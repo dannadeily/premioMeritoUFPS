@@ -9,47 +9,47 @@ $postulaciones=$postulados->listar($_SESSION['usuario']);
 $count=count($postulaciones);
  ?>
 
-<!DOCTYPE html>
-  <head>
-    <html lang="es" dir="ltr">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/inscripcion.css">
-    <title>Inscripciones</title>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="../js/alertas.js"></script>
-  </head>
 
   <main id="main" class="main">
-  <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+  <body>
     <header>
       <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside class="">
       <?php include 'barraLateralUsuario.php' ?>
     </aside>
-
-    <section  id="container-inscripcion">
-
-      <legend>Inscripciones:</legend>
-      <hr>
-      <table id="customers-inscripcion">
-        <tr>
-
-          <th>Convocatoria</th>
-          <th>Categoria</th>
-          <th>Calificacion</th>
-
-        </tr>
-        <?php for ($i=0; $i <$count-1 ; $i++) {?>
+    <section class="section">
+      </div>
+       <div class="row">
+       <div class="col-lg-12">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title">Convocatorias</h5>
+             <!-- Table with stripped rows -->
+             <table class="table datatable">
+               <thead>
+                 <tr>
+                   <th scope="col">Convocatoria</th>
+                   <th scope="col">Categoria</th>
+                   <th scope="col">Calificacion</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <?php for ($i=0; $i <$count-1 ; $i++) {
+                   ?>
           <tr>
             <td> <?php echo $postulaciones[$i]->titulo ?> </td>
             <td><?php echo $postulaciones[$i]->nombre ?></td>
             <td><?php echo $postulaciones[$i]->calificacion ?></td>
-
           </tr>
         <?php } ?>
-      </table>
-    </section>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+       </div>
+     </section>
 
   </main>
     <footer>

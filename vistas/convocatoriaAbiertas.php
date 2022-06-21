@@ -18,7 +18,6 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| ($_SESSION['rol'
      <title>convocatorias</title>
    </head>
    <body>
-     <main id="main" class="main">
      <header>
        <?php include 'HeaderLogin.php'; ?>
      </header>
@@ -26,30 +25,40 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| ($_SESSION['rol'
          <?php include 'barraLateralUsuario.php'; ?>
 
        </aside>
-
-       <section id="container-abierta">
-         <legend>Convocatorias:</legend>
-         <hr>
-
-       <table id="customers-abierta">
-         <tr>
-           <th>Categoria</th>
-           <th>Descripcion</th>
-           <th>Fecha de cierre</th>
-           <th>Incribir</th>
-
-         </tr>
-
-       <?php for ($i=0; $i <$count-1 ; $i++) {?>
-         <tr>
-            <td>    <?php echo $historial[$i]->titulo ?>  </td>
-            <td> <?php echo $historial[$i]->descripcion ?>  </td>
-            <td> <?php echo $historial[$i]->fecha_fin ?>  </td>
-            <td>  <abbr title="Seleccionar"><a href="categoriasActivas.php?id=<?php echo $historial[$i]->id_convocatoria ?> "> <i class="fas fa-check-square"></i> </a> </abbr>  </td>
-          </tr>
-      <?php } ?>
-       </table>
-
+     <main id="main" class="main">
+       <section class="section">
+         </div>
+          <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Convocatorias</h5>
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Descripcion</th>
+                      <th scope="col">Fecha de cierre</th>
+                      <th scope="col">Inscribir</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php for ($i=0; $i <$count-1 ; $i++) {
+                      ?>
+             <tr>
+               <td>    <?php echo $historial[$i]->titulo ?>  </td>
+               <td> <?php echo $historial[$i]->descripcion ?>  </td>
+               <td> <?php echo $historial[$i]->fecha_fin ?>  </td>
+               <td>  <a href="categoriasActivas.php?id=<?php echo $historial[$i]->id_convocatoria ?> "> <button class="btn btn-primary bi bi-clipboard-check" type="button" name="button"></button> </a> </td>
+             </tr>
+           <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          </div>
         </section>
       </main>
      <footer>

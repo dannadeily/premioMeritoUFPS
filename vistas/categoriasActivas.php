@@ -100,15 +100,13 @@ $count=count($listar);
 
           <button class="button-categoriasActivas" type="button" onclick="location.href='subirDocumentos.php?cc=<?php echo $_GET['cc'] ?>&con=<?php echo $_GET['id'] ?>&id=<?php echo $_GET['cat'] ?>'" name="button"> continuar </button>
         <?php } ?>
-
-
       </div>
        </section>
 
 </div>
-</main> 
+</main>
        <footer>
-         <?php include '../footer.php'; ?>
+         <?php include 'footer.php'; ?>
        </footer>
 
      </body>

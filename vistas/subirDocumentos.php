@@ -8,17 +8,7 @@ $documento=new DocumentoControlador();
 $documentos=$documento->listar();
 $contarDocumentos=count($documentos);
 ?>
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/subirDocumento.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="js/alertas.js"></script>
-      <title>subir documentos</title>
-  </head>
-
-  <body onload="mensaje('<?php echo  $_GET["msg"] ?>')">
+  <body>
 
     <main id="main" class="main">
     <header>
