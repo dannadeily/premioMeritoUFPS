@@ -8,19 +8,7 @@ $convocatoria=new ConvocatoriaControlador();
 $historial=$convocatoria->convocatoriaVigente();
 $count=count($historial);
  ?>
-
- <!DOCTYPE html>
- <html lang="es" dir="ltr">
-   <head>
-     <meta charset="utf-8">
-     <link rel="stylesheet" href="css/tabla.css">
-     <link rel="stylesheet" href="css/main.css">
-     <title>convocatorias vigentes</title>
-     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-       <script src="../js/alertas.js"></script>
-   </head>
-   <body  onload="mensaje('<?php echo  $_GET["msg"] ?>')">
-    <main id="main" class="main">
+   <body>
      <header>
        <?php include 'HeaderLogin.php'; ?>
      </header>
@@ -28,61 +16,112 @@ $count=count($historial);
          <?php include 'BarraLateralAdministrador.php'; ?>
 
        </aside>
-       <section class="section">
-         <div class="row">
-               <div class="card">
-               <div class="card-body">
-                 <h5 class="card-title">Editar convocatorias</h5>
+    <main id="main" class="main">
 
-       <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
-         <div class="dataTable-top">
-           <div class="dataTable-dropdown">
-             <label>
-               <select class="dataTable-selector">
-               <option value="5">5</option>
-               <option value="10" selected="">10</option>
-               <option value="15">15</option>
-               <option value="20">20</option>
-               <option value="25">25</option>
-             </select> entries per page</label>
-           </div>
-           <div class="dataTable-search">
-             <input class="dataTable-input" placeholder="Search..." type="text">
-           </div>
-         </div>
-         <div class="dataTable-container">
-           <table class="table datatable dataTable-table">
-             <thead>
-               <tr>
-                 <th>titulo</th>
-                 <th>descripcion</th>
-                 <th>fecha de inicio</th>
-                 <th>fecha de fin</th>
-                 <th>editar</th>
-               </tr>
-             </thead>
-             <tbody>
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
 
-       <?php for ($i=0; $i <$count-1 ; $i++) {?>
-         <tr>
-            <td> <?php echo $historial[$i]->titulo ?>  </td>
-            <td> <?php echo $historial[$i]->descripcion ?>  </td>
-            <td> <?php echo $historial[$i]->fecha_inicio ?>  </td>
-            <td> <?php echo $historial[$i]->fecha_fin ?>  </td>
-            <td>   <button onclick="location.href='editarConvocatoria.php?id=<?php echo $historial[$i]->id_convocatoria; ?>'"> <abbr title="Editar"><i class="fas fa-edit"></i></abbr> </button>                 </td>
-          </tr>
-      <?php } ?>
-    </table>
-  </div>
-  <div class="dataTable-bottom">
-    <div class="dataTable-info">Showing 1 to 5 of 5 entries
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Editar Convocatoria</h5>
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Titulo</th>
+                      <th scope="col">Descripcion</th>
+                      <th scope="col">Fecha apertura</th>
+                      <th scope="col">Fecha cierre</th>
+                      <th scope="col">Editar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php for ($i=0; $i < $count-1; $i++) {
+                      ?>
+             <tr>
+               <td> <?php echo $historial[$i]->titulo; ?> </td>
+               <td> <?php echo $historial[$i]->descripcion; ?> </td>
+               <td> <?php echo $historial[$i]->fecha_inicio; ?> </td>
+               <td> <?php echo $historial[$i]->fecha_fin; ?> </td>
+               <td>
+
+                 <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <form class="form_register" action="../controladores/router.php?con=ConvocatoriaControlador&fun=editarConvocatoria"  method="post" enctype="multipart/form-data">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar convocatoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="id" value="<?php echo $historial[$i]->id_convocatoria; ?>">
+        <div class="row mb-3">
+          <label for="inputText" class="col-sm-2 col-form-label">Titulo</label>
+          <div class="col-sm-10">
+            <input required type="text" name="titulo" class="form-control" value="<?php echo $historial[$i]->titulo; ?>">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputNumber" class="col-sm-2 col-form-label">Cargar imagen</label>
+          <div class="col-sm-10">
+            <input accept="image/*" name="imagen" class="form-control" type="file" id="formFile">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Descripcion</label>
+          <div class="col-sm-10">
+            <textarea required class="form-control" name="descripcion" style="height: 100px"><?php echo $historial[$i]->descripcion; ?></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputDate"  class="col-sm-2 col-form-label">Fecha inicio</label>
+          <div class="col-sm-10">
+            <input required name="fecha_inicio" value="<?php echo $historial[$i]->fecha_inicio; ?>" min="<?php echo date('Y-m-d') ?>" type="date" class="form-control">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputDate" class="col-sm-2 col-form-label">Fecha fin</label>
+          <div class="col-sm-10">
+            <input name="fecha_fin" value="<?php echo $historial[$i]->fecha_fin; ?>" required min="<?php echo date('Y-m-d') ?>" type="date" class="form-control">
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
     </div>
-    <nav class="dataTable-pagination">
-      <ul class="dataTable-pagination-list">
-      </ul>
-    </nav>
+    </form>
   </div>
 </div>
+
+                </td>
+             </tr>
+           <?php } ?>
+                  </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 </main>
 
 
