@@ -56,6 +56,12 @@
     </li><!-- End Forms Nav -->
   </ul>
   <li class="nav-item">
+    <a class="nav-link collapsed" href="">
+      <i class="bi bi-check-square"></i>
+      <span>Calificadores</span>
+    </a>
+  </li
+  <li class="nav-item">
     <a class="nav-link collapsed" href="informe.php">
       <i class="bi bi-journal-text"></i>
       <span>Generar Informe</span>
