@@ -56,7 +56,7 @@
     </li><!-- End Forms Nav -->
   </ul>
   <li class="nav-item">
-    <a class="nav-link collapsed" href="">
+    <a class="nav-link collapsed" href="gestionarCalificadores.php">
       <i class="bi bi-check-square"></i>
       <span>Calificadores</span>
     </a>

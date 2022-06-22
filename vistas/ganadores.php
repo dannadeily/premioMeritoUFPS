@@ -23,33 +23,47 @@ $ganadores=$convocatoria->ganadores($_GET["conv"]);
     <aside class="">
       <?php include 'BarraLateralAdministrador.php';  ?>
     </aside>
-    <section id="container-historial">
-
-      <table id="customers">
+    <section class="section">
+      </div>
+       <div class="row">
+       <div class="col-lg-12">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title">Ganadores</h5>
+             <!-- Table with stripped rows -->
+             <table class="table datatable">
+               <thead>
+                 <tr>
+                   <th>Codigo</th>
+                   <th>Nombre</th>
+                   <th>Apellidos</th>
+                   <th>Categoria</th>
+                   <th>rol</th>
+                   <th>Calificacion</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <?php for ($i=0; $i <count($ganadores)-1 ; $i++) {
+                   ?>
           <tr>
-            <th>Codigo</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Categoria</th>
-            <th>rol</th>
-            <th>Calificacion</th>
-          </tr>
-          <?php for ($i=0; $i <count($ganadores)-1 ; $i++) { ?>
-            <tr>
             <td> <?php echo $ganadores[$i]->codigo_usuario; ?> </td>
             <td> <?php echo $ganadores[$i]->nombres; ?> </td>
             <td> <?php echo $ganadores[$i]->apellidos; ?> </td>
             <td> <?php echo $ganadores[$i]->nombre; ?> </td>
             <td> <?php echo $ganadores[$i]->rol; ?> </td>
             <td> <?php echo $ganadores[$i]->calificacion; ?> </td>
-            </tr>
+          </tr>
+        <?php } ?>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+       </div>
+     </section>
 
-      <?php    } ?>
-      </table>
 
 
-
-    </section>
   </main>
     <footer>
         <?php include 'footer.php'; ?>

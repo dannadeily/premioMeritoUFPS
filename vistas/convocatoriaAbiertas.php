@@ -8,22 +8,12 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| ($_SESSION['rol'
   header("location:iniciar.php");
 }
  ?>
-
- <!DOCTYPE html>
- <html lang="es" dir="ltr">
-   <head>
-     <meta charset="utf-8">
-     <link rel="stylesheet" href="../css/convocatoriaAbiertas.css">
-     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-     <title>convocatorias</title>
-   </head>
    <body>
      <header>
        <?php include 'HeaderLogin.php'; ?>
      </header>
        <aside class="">
          <?php include 'barraLateralUsuario.php'; ?>
-
        </aside>
      <main id="main" class="main">
        <section class="section">

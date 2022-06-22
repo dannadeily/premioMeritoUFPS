@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
-  header("location:../vistas/modulo/iniciar.php");
+  header("location:../vistas/iniciar.php");
 }
 if (empty($_GET["conv"])) {
-  header("location:../vistas/modulo/historial.php");
+  header("location:../vistas/historial.php");
 }
 require_once '../controladores/ConvocatoriaCategoriaControlador.php';
 require '../controladores/ConvocatoriaControlador.php';

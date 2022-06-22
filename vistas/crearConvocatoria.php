@@ -13,16 +13,13 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
     </aside>
     <main id="main" class="main">
 
-      <div class="pagetitle">
-        <h1>Crear convocatoria</h1>
-      </div><!-- End Page Title -->
 
       <section class="section">
 
 
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title"></h5>
+                <h5 class="card-title">Crear convocatoria</h5>
 
                 <!-- General Form Elements -->
                 <form class="form_register" action="../controladores/router.php?con=ConvocatoriaControlador&fun=crearConvocatoria"  method="post" enctype="multipart/form-data">

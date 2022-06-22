@@ -60,6 +60,18 @@ class UsuarioModelo extends Conexion
     return $filas;
   }
 
+  public function listarCalificador()
+  {
+      $sql="select * from usuario where rol='Calificador'" ;
+    $datos=$this->conectar()->prepare($sql);
+    $datos->execute();
+    while ($filas[]=$datos->fetch(PDO::FETCH_OBJ)) {
+      }
+    $datos->closeCursor();
+    $datos=null;
+    return $filas;
+  }
+
   public function recuperarContrasena($codigo_usuario,$contrasena,$email)
   {
 

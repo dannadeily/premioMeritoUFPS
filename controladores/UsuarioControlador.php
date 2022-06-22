@@ -43,6 +43,11 @@ class UsuarioControlador
     }
   }
 
+  public function listarCalificador()
+  {
+    return $this->model->listarCalificador();
+  }
+
   public function listar($codigo = '')
   {
     return $this->model->listar($codigo);
