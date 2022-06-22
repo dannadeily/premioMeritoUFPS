@@ -59,7 +59,7 @@ $count=count($listar);
                   }  ?>
                     <td><?php echo $listar[$i]->rol; ?></td>
 
-                    <td> <a href="DocumentosCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <abbr title="Visualizar"><i class="fas fa-eye"></i></abbr></a>     </td>
+                    <td> <a href="DocumentosCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <button class="btn btn-primary bi bi-eye" type="button" name="button"></button>  </a>     </td>
                     <!-- <td> <a href="editarCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <abbr title="Editar"><i class="fas fa-edit"></i></abbr></a> </td> -->
                     <td>
                       <!-- Button trigger modal -->
