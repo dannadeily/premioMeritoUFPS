@@ -34,7 +34,12 @@ class UsuarioControlador
 
 
       if ($this->model->agregarUsuario($usuario) > 0) {
-        header("location:../vistas/registrar.php?msg=registrado");
+        if($_POST["rol"]='Calificador'){
+          header("location:../vistas/gestionarCalificadores.php");
+        }else{
+          header("location:../vistas/registrar.php?msg=registrado");
+        }
+
       } else {
         header("location:../vistas/registrar.php?msg=existe");
       }
@@ -96,8 +101,12 @@ class UsuarioControlador
         } else {
           if ($_SESSION['rol'] == "administrador") {
             header("location:../vistas/historial.php");
-          }
+          }else {
+            if ($_SESSION['rol'] == "Calificador") {
+              header("location:../vistas/calificador.php");
+            }
         }
+      }
       } else {
         header("location:../vistas/iniciar.php?msg=incorrecto");
       }
@@ -144,5 +153,10 @@ class UsuarioControlador
         header("location:../vistas/cambiarContrasenaAdmin.php?msg=incorrecto");
       }
     }
+  }
+  public function eliminar()
+  {
+    $this->model->eliminar($_POST['codigo']);
+    header("location:../vistas/gestionarCalificadores.php");
   }
 }

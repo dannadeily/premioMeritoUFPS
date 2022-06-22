@@ -10,11 +10,14 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="datosPersonales.php">
+        <a class="nav-link collapsed" href="calificador.php">
           <i class="bi bi-person-lines-fill"></i>
           <span>Calificar</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="cambiarContrasenaCalificador.php">
+          <i class="bi bi-key-fill"></i>
           <span>Cambiar contraseña</span>
         </a>
       </li>

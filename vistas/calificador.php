@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
+if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="Calificador") {
   header("location:iniciar.php");
 }else {
   require_once '../controladores/ConvocatoriaControlador.php';
@@ -10,8 +10,6 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
 }
  ?>
   <body>
-
-    <main id="main" class="main">
     <header>
       <?php include 'HeaderLogin.php'; ?>
     </header>
@@ -20,16 +18,16 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
       <?php include 'BarraLateralCalificador.php' ?>
     </aside>
 
-    <section class="section">
-</div>
 
-<div class="row">
-  <div class="col-lg-12">
+    <main id="main" class="main">
 
+  <section class="section">
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Convocatorias</h5>
-        <!-- Table with stripped rows -->
         <table class="table datatable">
           <thead>
             <tr>
@@ -49,7 +47,6 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
        <td> <?php echo $listaConvocatorias[$i]->fecha_fin; ?> </td>
        <td><?php echo $convocatoria->diasRestantes($listaConvocatorias[$i]->fecha_fin);?> </td>
          <td><a href="calificarCategoria.php?conv=<?php echo $listaConvocatorias[$i]->id_convocatoria; ?>"> <button class="bi bi-check btn btn-success" type="button" name="button"></button> </a></td>
-
      </tr>
    <?php } ?>
           </tbody>
@@ -57,10 +54,8 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
         <!-- End Table with stripped rows -->
       </div>
     </div>
-
   </div>
 </div>
-
 </section>
 
 </main>

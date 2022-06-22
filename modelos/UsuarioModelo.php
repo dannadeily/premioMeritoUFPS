@@ -115,6 +115,16 @@ $datos->execute(array(":contrasena"=>$contrasena,
 $datos=null;
   }
 
+  public function eliminar($codigo)
+  {
+    $sql="DELETE from usuario where codigo_usuario=$codigo";
+    $datos=$this->conectar()->prepare($sql);
+    $datos->execute();
+    $afectadas=$datos->rowCount();
+      $datos=null;
+    return $afectadas;
+  }
+
 }
 
 

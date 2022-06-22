@@ -152,7 +152,35 @@ array_pop($usuariosLista);
                     <td><?php echo $key->numero_documento ?></td>
                     <td><?php echo $key->nombre.' '.$key->apellidos ?></td>
                     <td><?php echo $key->email ?></td>
-                    <td><?php echo $key->numero_documento ?></td>
+                    <td>
+
+                      <button type="button" class="btn btn-danger bi bi-trash" data-bs-toggle="modal" data-bs-target="#eliminar<?php echo $i ?>">
+                      </button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="eliminar<?php echo $i ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <form class="" action="../controladores/router.php?con=UsuarioControlador&&fun=eliminar" method="post">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+
+                                <input type="hidden" name="codigo" value="<?php echo $key->codigo_usuario ?>">
+                                <strong>Seguro desea eliminar el calificador <?php echo $key->codigo_usuario ?> ? </strong>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Canceral</button>
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+                    </td>
                   </tr>
                 <?php
                 }
