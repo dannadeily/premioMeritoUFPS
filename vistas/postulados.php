@@ -120,9 +120,15 @@ if (!empty($_GET["cc"])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div class="row mb-3">
+          <label for="inputText" class="col-sm-2 col-form-label">Nota</label>
+          <div class="col-sm-10">
+            <input required type="number" name="nota" placeholder="Inserte la nota" min="0"  max="5.0" step="any" class="form-control">
+          </div>
+        </div>
 
         <input type="hidden" name="codigo" value="<?php echo $lista[$i]->codigo_usuario ?>"></p>
-        <p id="notamodal">  <input required type="number" name="nota" placeholder="Inserte la nota" min="0"  max="5.0" step="any"> </p>
+        <!-- <p id="notamodal">  <input required type="number" name="nota" placeholder="Inserte la nota" min="0"  max="5.0" step="any"> </p> -->
 
 
 

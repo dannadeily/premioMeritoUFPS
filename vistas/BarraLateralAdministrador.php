@@ -67,7 +67,6 @@
       <span>Generar Informe</span>
     </a>
   </li><!-- End generar informe Page Nav -->
-
   <li class="nav-item">
     <a class="nav-link collapsed" href="cambiarContrasenaAdmin.php">
       <i class="bi bi-key-fill"></i>
