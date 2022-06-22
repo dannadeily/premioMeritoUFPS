@@ -61,7 +61,55 @@ $count=count($listar);
 
                     <td> <a href="DocumentosCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <abbr title="Visualizar"><i class="fas fa-eye"></i></abbr></a>     </td>
                     <!-- <td> <a href="editarCategoria.php?id=<?php echo $listar[$i]->id_categoria ?>"> <abbr title="Editar"><i class="fas fa-edit"></i></abbr></a> </td> -->
-                    <td>  </td>
+                    <td>
+                      <!-- Button trigger modal -->
+<button type="button" class=" bi bi-pencil-square btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $i ?>">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal<?php echo $i ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <form class="" action="../controladores/router.php?con=CategoriaControlador&fun=editar" method="post">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar categoria</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="row mb-3">
+        <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+          <input required value="<?php echo trim($listar[$i]->nombre); ?>" type="text" name="nombre" class="form-control">
+        </div>
+      </div>
+
+      <input  type="hidden" name="id" value="  <?php echo $listar[$i]->id_categoria; ?> ">
+      <div class="row mb-3">
+        <label for="inputState" class="col-sm-3 col-form-label">Tipo de usuario</label>
+        <div class="col-sm-9">
+          <select name="rol" id="inputState" class="form-select">
+            <option value="1">Estudiante</option>
+            <option value="2">Egresado</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputPassword" class="col-sm-3 col-form-label">Descripcion</label>
+        <div class="col-sm-9">
+          <textarea required class="form-control" name="descripcion" style="height: 100px"><?php echo trim($listar[$i]->descripcion); ?></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </div>
+  </div>
+    </form>
+</div>
+</div>
+                     </td>
                   </tr>
 
                 <?php } ?>

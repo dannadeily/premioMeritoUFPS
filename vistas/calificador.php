@@ -46,7 +46,7 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
        <td> <?php echo $listaConvocatorias[$i]->descripcion; ?> </td>
        <td> <?php echo $listaConvocatorias[$i]->fecha_fin; ?> </td>
        <td><?php echo $convocatoria->diasRestantes($listaConvocatorias[$i]->fecha_fin);?> </td>
-         <td><a href="calificarCategoria.php?conv=<?php echo $listaConvocatorias[$i]->id_convocatoria; ?>"> <button class="bi bi-check btn btn-success" type="button" name="button"></button> </a></td>
+         <td><a href="calificarCategoriaCalificador.php?conv=<?php echo $listaConvocatorias[$i]->id_convocatoria; ?>"> <button class="bi bi-check btn btn-success" type="button" name="button"></button> </a></td>
      </tr>
    <?php } ?>
           </tbody>

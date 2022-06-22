@@ -96,6 +96,7 @@ class UsuarioControlador
         session_start();
         $_SESSION['usuario'] = $_POST['codigo'];
         $_SESSION['rol'] = $usuario[0]->rol;
+        $_SESSION['nombre'] = $usuario[0]->nombre . ' '.$usuario[0]->apellidos ;
         if ($_SESSION['rol'] == "Estudiante" || $_SESSION['rol'] == "Egresado") {
           header("location:../vistas/datosPersonales.php");
         } else {

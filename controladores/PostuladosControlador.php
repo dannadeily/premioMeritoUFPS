@@ -26,11 +26,18 @@ public function listar($id='')
 }
 public function calificar()
 {
+  session_start();
   if (!empty($_POST["nota"])&&!empty($_POST["codigo"])) {
+
     $this->model->calificar($_POST["nota"],$_POST["codigo"]);
-  }
+
+  if($_SESSION['rol']=='administrador'){
   header("location:../vistas/calificar.php?msg=calificacion");
+}else{
+  header("location:../vistas/Calificador.php");
+}
 }
 
+}
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
+if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="Calificador") {
   header("location:iniciar.php");
 }
 require_once '../controladores/PostuladosControlador.php';
@@ -18,7 +18,7 @@ if (!empty($_GET["cc"])) {
       <?php include 'HeaderLogin.php'; ?>
     </header>
     <aside>
-      <?php include 'BarraLateralAdministrador.php'; ?>
+      <?php include 'BarraLateralCalificador.php'; ?>
     </aside>
     <main id="main" class="main">
     <section class="section">
@@ -41,7 +41,7 @@ if (!empty($_GET["cc"])) {
                </thead>
                <tbody>
                  <?php for ($i=0; $i <count($lista)-1 ; $i++) {
-                  $ruta="../documentos/".$convocatoria->id_convocatoria."/".$convocatoria->id_categoria."/".$lista[$i]->codigo_usuario;
+                   $ruta="../documentos/".$convocatoria->id_convocatoria."/".$convocatoria->id_categoria."/".$lista[$i]->codigo_usuario;
                    ?>
           <tr>
             <td> <?php echo $lista[$i]->codigo_usuario ?>  </td>

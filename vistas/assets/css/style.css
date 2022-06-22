@@ -345,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo span {
   font-size: 26px;
   font-weight: 700;
-  color: #012970;
+  color: white;
   font-family: "Nunito", sans-serif;
 }
 
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #dd4b39;
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -363,7 +363,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 32px;
   padding-left: 10px;
   cursor: pointer;
-  color: #012970;
+  color: white;
 }
 .header .search-bar {
   min-width: 360px;
@@ -429,10 +429,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header-nav .nav-icon {
   font-size: 20px;
-  color: #012970;
+  color: white;
 }
 .header-nav .nav-profile {
-  color: #012970;
+  color: white;
 }
 .header-nav .nav-profile img {
   max-height: 36px;
