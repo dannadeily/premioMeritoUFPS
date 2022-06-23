@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']!="administrador") {
+if (!isset($_SESSION['usuario']) || empty($_SESSION['usuario']) || $_SESSION['rol'] != "administrador") {
   header("location:../vistas/iniciar.php");
 }
 include '../controladores/UsuarioControlador.php';
@@ -12,33 +12,36 @@ array_pop($usuariosLista);
 <header>
   <?php include 'HeaderLogin.php'; ?>
 </header>
-  <?php include 'BarraLateralAdministrador.php'; ?>
+<?php include 'BarraLateralAdministrador.php'; ?>
 <aside>
 
 </aside>
 
 <main id="main" class="main">
-  <?php if (isset($_COOKIE['eliminada'])) {
-  ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <i class="bi bi-check-circle me-1"></i>Usuario eliminado con exito
+
+
+  <?php if (isset($_COOKIE['error'])) { ?>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Datos incorrectos.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  <?php
 
-  }
+  <?php }  ?>
 
-  ?>
-  <?php if (isset($_COOKIE['actualizada'])) {
-  ?>
+  <?php if (isset($_COOKIE['exito'])) { ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <i class="bi bi-check-circle me-1"></i>Usuario actualizado con exito
+      Calificador añadido con exito.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  <?php
-  }
 
-  ?>
+  <?php }  ?>
+  <?php if (isset($_COOKIE['eliminada'])) { ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Calificador eliminado con exito.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+  <?php }  ?>
 
   <?php if (isset($_COOKIE['datosincompletos'])) {
   ?>
@@ -84,43 +87,43 @@ array_pop($usuariosLista);
                   </div>
                   <div class="modal-body">
                     <form id="form-registrar" action="../controladores/router.php?con=UsuarioControlador&fun=agregarUsuario" method="post">
-                    <div class="col-md-12">
-                      <label for="inputName5" class="form-label">Codigo</label>
-                      <input required type="number" name="codigo_usuario" class="form-control" id="inputName5">
-                    </div>
-                    <div class="col-md-12">
-                      <label for="inputName5" class="form-label">Correo</label>
-                      <input required type="email" name="email" class="form-control" id="inputName5">
-                    </div>
-                    <div class="col-md-12">
-                      <label for="inputEmail5" class="form-label">nombre</label>
-                      <input required type="text" name="nombre" class="form-control" id="inputEmail5">
-                    </div>
-                    <div class="col-md-12">
-                      <label for="inputPassword5" class="form-label">apellido</label>
-                      <input required type="text" name="apellidos" class="form-control" id="inputPassword5">
-                    </div>
-                    <div class="col-md-12">
-                      <label for="inputState" class="form-label">Tipo Documento</label>
-                      <select required id="inputState" name="tipoDocumento" class="form-select">
-                        <option value="Cedula de ciudadania"> Cedula de ciudadania</option>
-                                     <option value="Tarjeta de identidad"> Tarjeta de identidad</option>
-                                     <option value="Cedula de extranjeria"> Cedula de extranjeria</option>
-                      </select>
-                    </div>
+                      <div class="col-md-12">
+                        <label for="inputName5" class="form-label">Codigo</label>
+                        <input required type="number" name="codigo_usuario" class="form-control" id="inputName5">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="inputName5" class="form-label">Correo</label>
+                        <input required type="email" name="email" class="form-control" id="inputName5">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="inputEmail5" class="form-label">nombre</label>
+                        <input required type="text" name="nombre" class="form-control" id="inputEmail5">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="inputPassword5" class="form-label">apellido</label>
+                        <input required type="text" name="apellidos" class="form-control" id="inputPassword5">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="inputState" class="form-label">Tipo Documento</label>
+                        <select required id="inputState" name="tipoDocumento" class="form-select">
+                          <option value="Cedula de ciudadania"> Cedula de ciudadania</option>
+                          <option value="Tarjeta de identidad"> Tarjeta de identidad</option>
+                          <option value="Cedula de extranjeria"> Cedula de extranjeria</option>
+                        </select>
+                      </div>
 
-                    <div class="col-md-12">
-                      <label for="inputAddress5" class="form-label">Número de documento</label>
-                      <input required type="number" name="numero_documento" class="form-control" id="inputAddres5s">
-                    </div>
+                      <div class="col-md-12">
+                        <label for="inputAddress5" class="form-label">Número de documento</label>
+                        <input required type="number" name="numero_documento" class="form-control" id="inputAddres5s">
+                      </div>
 
-                    <div class="col-md-12">
-                      <label for="inputAddress2" class="form-label">contraseña</label>
-                      <input required type="password" name="contrasena" class="form-control" id="inputAddress2">
-                    </div>
-                    <input type="hidden" name="rol" value="Calificador">
-                    <div class="col-12">
-                    </div>
+                      <div class="col-md-12">
+                        <label for="inputAddress2" class="form-label">contraseña</label>
+                        <input required type="password" name="contrasena" class="form-control" id="inputAddress2">
+                      </div>
+                      <input type="hidden" name="rol" value="Calificador">
+                      <div class="col-12">
+                      </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Canceral</button>
@@ -150,7 +153,7 @@ array_pop($usuariosLista);
                   <tr>
                     <td><?php echo $key->codigo_usuario ?></td>
                     <td><?php echo $key->numero_documento ?></td>
-                    <td><?php echo $key->nombre.' '.$key->apellidos ?></td>
+                    <td><?php echo $key->nombre . ' ' . $key->apellidos ?></td>
                     <td><?php echo $key->email ?></td>
                     <td>
 

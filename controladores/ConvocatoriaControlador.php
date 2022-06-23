@@ -29,14 +29,16 @@ class ConvocatoriaControlador
           'fecha_fin' => $_POST["fecha_fin"]
         );
         if ($_FILES["imagen"]["error"]) {
-          header("location:../vistas/crearConvocatoria.php?msg=errorimagen");
+          setcookie('errorImagen', 'error', time() + 3, '/');
+          header("location:../vistas/crearConvocatoria.php");
         } else {
           $permitidos = array("image/png", "image/jpg", "image/jpeg", "image/gif");
           $limite_kb = 5000;
           if (in_array($_FILES["imagen"]["type"], $permitidos) && $_FILES["imagen"]["size"] < $limite_kb * 1024) {
             $id = $this->model->crearConvocatoria($convocatoria);
             if ($id < 1) {
-              header("location:../vistas/crearConvocatoria.php?msg=incompletos");
+              setcookie('error', 'error', time() + 3, '/');
+              header("location:../vistas/crearConvocatoria.php");
               return;
             }
             $ruta = "../vistas/imgConvocatorias/";
@@ -49,7 +51,8 @@ class ConvocatoriaControlador
               $resultado = @move_uploaded_file($_FILES["imagen"]["tmp_name"], $archivo);
             }
           } else {
-            header("location:../vistas/crearConvocatoria.php?msg=tamañomayor");
+            setcookie('tamaño', 'tamaño', time() + 3, '/');
+            header("location:../vistas/crearConvocatoria.php");
           }
         }
         //crear convocatoria con las categorias activas
@@ -64,14 +67,18 @@ class ConvocatoriaControlador
           }
 
           if ($i == $listaCount - 2) {
-            header("location:../vistas/historial.php?msg=registrado");
+            setcookie('exito', 'exito', time() + 3, '/');
+
+            header("location:../vistas/historial.php");
           }
         }
       } else {
+      setcookie('fecha', 'error', time() + 3, '/');
         header("location:../vistas/crearConvocatoria.php?msg=fechamenor");
       }
     } else {
-      header("location:../vistas/crearConvocatoria.php?msg=incompletos");
+      setcookie('error', 'error', time() + 3, '/');
+      header("location:../vistas/crearConvocatoria.php");
     }
   }
 
@@ -98,11 +105,13 @@ class ConvocatoriaControlador
         $this->model->editar($convocatoria);
 
         if (($_FILES["imagen"]["name"] == "")) {
-          header("location:../vistas/historial.php?msg=actualizado");
+          setcookie('actualizada', 'exito', time() + 3, '/');
+          header("location:../vistas/convocatoriaVigente.php");
           return;
         }
         if ($_FILES["imagen"]["error"]) {
-          header("location:../vistas/editarConvocatoria.php?id=" . $_POST['id'] . "&&msg=errorimagen");
+          setcookie('errorImagen', 'error', time() + 3, '/');
+          header("location:../vistas/convocatoriaVigente.php");
         } else {
           $permitidos = array("image/png", "image/jpg", "image/jpeg", "image/gif");
           $limite_kb = 5000;
@@ -118,21 +127,26 @@ class ConvocatoriaControlador
               $resultado = @move_uploaded_file($_FILES["imagen"]["tmp_name"], $archivo);
               if ($resultado) {
               } else {
-                header("location:../vistas/editarConvocatoria.php?id=" . $_POST['id'] . "&&msg=errorimagen");
+                setcookie('errorImagen', 'error', time() + 3, '/');
+                header("location:../vistas/convocatoriaVigente.php");
               }
             } else {
               $resultado = @move_uploaded_file($_FILES["imagen"]["tmp_name"], $archivo);
             }
           } else {
-            header("location:../vistas/editarConvocatoria.php?id=" . $_POST['id'] . "&&msg=tamañomayor");
+            setcookie('tamañoMayor', 'error', time() + 3, '/');
+            header("location:../vistas/convocatoriaVigente.php");
           }
-          header("location:../vistas/convocatoriaVigente.php?msg=actualizado");
+          setcookie('actualizada', 'exito', time() + 3, '/');
+          header("location:../vistas/convocatoriaVigente.php");
         }
       } else {
-        header("location:../vistas/editarConvocatoria.php?id=" . $_POST['id'] . "&&msg=fechamenor");
+        setcookie('fecha', 'error', time() + 3, '/');
+        header("location:../vistas/convocatoriaVigente.php");
       }
     } else {
-      header("location:../vistas/editarConvocatoria.php?id=" . $_POST['id'] . "&&msg=incompletos");
+      setcookie('error', 'error', time() + 3, '/');
+      header("location:../vistas/convocatoriaVigente.php");
     }
   }
 

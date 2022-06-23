@@ -28,9 +28,11 @@ class DocumentoControlador
         'descripcion' => $_POST['descripcion']
       );
       $this->model->guardarDocumento($documentos);
-      header("location:../vistas/DocumentosCategoria.php?id=" . $_POST['id'] . "&&msg=registrado");
+      setcookie('Documentoexito', 'exito', time() + 3, '/');
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_POST['id'] );
     } else {
-      header("location:../vistas/DocumentosCategoria.php?id=" . $_POST['id'] . "&&msg=incompletos");
+      setcookie('error', 'error', time() + 3, '/');
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_POST['id'] );
     }
   }
 
@@ -39,9 +41,11 @@ class DocumentoControlador
 
     if (!empty($_GET['idDoc']) && !empty($_GET['id'])) {
       $this->model->borrarDocumento($_GET['idDoc']);
-      header("location:../vistas/DocumentosCategoria.php?id=" . $_GET['id'] . "&&msg=borrado");
+      setcookie('borrado', 'borrado', time() + 3, '/');
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_GET['id'] );
     } else {
-      header("location:../vistas/DocumentosCategoria.php?id=" . $_GET['id'] . "&&msg=noborrado");
+      setcookie('error', 'error', time() + 3, '/');
+      header("location:../vistas/DocumentosCategoria.php?id=" . $_GET['id'] );
     }
   }
   public function guardarArchivo()
@@ -54,7 +58,8 @@ class DocumentoControlador
     $i = 0;
     foreach ($_FILES as $archivo => $atributo) {
       if ($atributo["size"] > $limite_kb * 1024 || $atributo["type"] != $permitidos) {
-        header("location:../vistas/inscripciones.php?msg=tamañosmayores");
+        setcookie('error', 'error', time() + 3, '/');
+        header("location:../vistas/inscripciones.php");
         return;
       }
     }
@@ -78,7 +83,8 @@ class DocumentoControlador
           $resultado = move_uploaded_file($atributo["tmp_name"], $archivo);
         }
         $postulado->inscribir($_GET["cc"]);
-        header("location:../vistas/inscripciones.php?msg=registrado");
+        setcookie('exito', 'exito', time() + 3, '/');
+        header("location:../vistas/inscripciones.php");
       }
     }
   }
@@ -98,8 +104,10 @@ class DocumentoControlador
         'id' => $_POST["id"]
       );
       $this->model->editar($documento);
-      header("location:../vistas/seleccionarCategoria.php?msg=actualizado");
+      setcookie('documentoActualizado', 'exito', time() + 3, '/');
+      header("location:../vistas/seleccionarCategoria.php");
     } else {
+      setcookie('error', 'error', time() + 3, '/');
       header("location:../vistas/seleccionarCategoria.php?msg=incompletos");
     }
   }

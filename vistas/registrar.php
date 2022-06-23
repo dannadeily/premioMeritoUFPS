@@ -9,14 +9,34 @@ session_destroy();
     <?php include 'Header.php' ?>
   </header>
   <main id="main" class="main">
-    <div class="pagetitle">
-      <h1>REGISTRAR</h1>
-    </div><!-- End Page Title -->
+    <!-- End Page Title -->
     <section class="section">
+
+
+
       <div class="row">
         <div class="col-md-8">
+
+        <?php if (isset($_COOKIE['error'])) { ?>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            datos incorrectos
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          
+        <?php }  ?>
+
+
+
+        <?php if (isset($_COOKIE['exito'])) { ?>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Registrado con exito
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          
+        <?php }  ?>
           <div class="card">
             <div class="card-body">
+            <h5 class="card-title">Registro</h5>
               <!-- Multi Columns Form -->
                 <form class="row g-3" id="form-registrar" action="../controladores/router.php?con=UsuarioControlador&fun=agregarUsuario" method="post">
                 <div class="col-md-6">

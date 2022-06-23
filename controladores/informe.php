@@ -25,7 +25,7 @@ ob_start();
 
       <table style="width:100%;padding-bottom:20px;">
         <tr>
-          <td style="width:auto"> <img  src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/vistas/img/logo.png" alt="" style="width:150px;float:left;"> </td>
+          <!-- <td style="width:auto"> <img  src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/vistas/img/logo.png" alt="" style="width:150px;float:left;"> </td> -->
 
           <td ><?php echo "$fecha"; ?></td>
         </tr>

@@ -36,9 +36,6 @@ $count=count($listar);
     Seleccionar categoria
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
     <?php for ($i=0; $i <$count-1 ; $i++) { ?>
     <li> <a class="dropdown-item" href="participantes.php?cc=<?php echo $listar[$i]->id; ?>&&conv=<?php echo $_GET["conv"]; ?>&&cat=<?php echo $listar[$i]->id_categoria ?>">
             <?php  echo $listar[$i]->nombre." ".$listar[$i]->rol; ?>

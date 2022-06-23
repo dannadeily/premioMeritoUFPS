@@ -1,6 +1,8 @@
 <?php
 require_once '../modelos/UsuarioModelo.php';
+require '../vendor/autoload.php';
 
+use \Mailjet\Resources;
 
 /**
  *
@@ -34,17 +36,33 @@ class UsuarioControlador
 
 
       if ($this->model->agregarUsuario($usuario) > 0) {
-        if($_POST["rol"]='Calificador'){
+        setcookie('exito', 'exito', time() + 3, '/');
+        if ($_POST["rol"] == 'Calificador') {
+          $asunto = "Ha sido registrado como calificador en premio al merito UFPS";
+          $mensaje = "Su clave de acceso es " . $_POST["contrasena"];
+          $destinatario = $_POST["email"];
+          $this->enviarCorreo($asunto, $mensaje, $destinatario);
           header("location:../vistas/gestionarCalificadores.php");
-        }else{
-          header("location:../vistas/registrar.php?msg=registrado");
+        } else {
+          header("location:../vistas/registrar.php");
         }
-
       } else {
-        header("location:../vistas/registrar.php?msg=existe");
+        if ($_POST["rol"] == 'Calificador') {
+          setcookie('error', 'error', time() + 3, '/');
+          header("location:../vistas/gestionarCalificadores.php");
+        } else {
+          setcookie('error', 'error', time() + 3, '/');
+          header("location:../vistas/registrar.php");
+        }
       }
     } else {
-      header("location:../vistas/registrar.php?msg=incompletos");
+      if ($_POST["rol"] == 'Calificador') {
+        setcookie('error', 'error', time() + 3, '/');
+        header("location:../vistas/gestionarCalificadores.php");
+      } else {
+        setcookie('error', 'error', time() + 3, '/');
+        header("location:../vistas/registrar.php");
+      }
     }
   }
 
@@ -69,21 +87,16 @@ class UsuarioControlador
         $mensaje = "su nueva contraseña es: " . $new_password . " Se recomienda realizar el cambio al ingresar";
         $destinatario = $_POST["email"];
         $asunto = "contraseña ingreso premio al merito";
-        $headers = 'From: adrean130320@gmail.com' . "\r\n" .
-          'Reply-To: adrean130320@gmail.com' . "\r\n" .
-          'X-Mailer: PHP/' . phpversion();
-
-        $exito = mail($destinatario, $asunto, $mensaje, $headers);
-        if ($exito) {
-          header("location:../vistas/recuperar.php?msg=enviado");
-        } else {
-          header("location:../vistas/recuperar.php?msg=tarde");
-        }
+        $this->enviarCorreo($asunto, $mensaje, $destinatario);
+        setcookie('exito', 'exito', time() + 3, '/');
+        header("location:../vistas/recuperar.php");
       } else {
-        header("location:../vistas/recuperar.php?msg=incorrecto");
+        setcookie('error', 'error', time() + 3, '/');
+        header("location:../vistas/recuperar.php");
       }
     } else {
-      header("location:../vistas/recuperar.php?msg=incompletos");
+      setcookie('error', 'error', time() + 3, '/');
+      header("location:../vistas/recuperar.php");
     }
   }
 
@@ -96,23 +109,25 @@ class UsuarioControlador
         session_start();
         $_SESSION['usuario'] = $_POST['codigo'];
         $_SESSION['rol'] = $usuario[0]->rol;
-        $_SESSION['nombre'] = $usuario[0]->nombre . ' '.$usuario[0]->apellidos ;
+        $_SESSION['nombre'] = $usuario[0]->nombre . ' ' . $usuario[0]->apellidos;
         if ($_SESSION['rol'] == "Estudiante" || $_SESSION['rol'] == "Egresado") {
           header("location:../vistas/datosPersonales.php");
         } else {
           if ($_SESSION['rol'] == "administrador") {
             header("location:../vistas/historial.php");
-          }else {
+          } else {
             if ($_SESSION['rol'] == "Calificador") {
               header("location:../vistas/calificador.php");
             }
+          }
         }
-      }
       } else {
-        header("location:../vistas/iniciar.php?msg=incorrecto");
+        setcookie('error', 'error', time() + 3, '/');
+        header("location:../vistas/iniciar.php");
       }
     } else {
-      header("location:../vistas/iniciar.php?msg=incompletos");
+      setcookie('error', 'error', time() + 3, '/');
+      header("location:../vistas/iniciar.php");
     }
   }
   public function cerrarSesion()
@@ -125,16 +140,21 @@ class UsuarioControlador
   }
   public function editarDatos()
   {
-    $editar = array(
-      'codigo_usuario' => $_POST['codigo_usuario'],
-      'nombre' => $_POST['nombre'],
-      'apellidos' => $_POST['apellidos'],
-      'email' => $_POST['email'],
-      'numero_documento' => $_POST['numero_documento'],
-      'tipoDocumento' => $_POST['tipoDocumento']
-    );
-    $this->model->editarDatos($editar);
-    header("location:../vistas/datosPersonales.php?msg=actualizado");
+    if (!empty($_POST['codigo_usuario']) && !empty($_POST['nombre']) && !empty($_POST['apellidos']) && !empty($_POST['email']) && !empty($_POST['numero_documento']) && !empty($_POST['tipoDocumento'])) {
+      $editar = array(
+        'codigo_usuario' => $_POST['codigo_usuario'],
+        'nombre' => $_POST['nombre'],
+        'apellidos' => $_POST['apellidos'],
+        'email' => $_POST['email'],
+        'numero_documento' => $_POST['numero_documento'],
+        'tipoDocumento' => $_POST['tipoDocumento']
+      );
+      $this->model->editarDatos($editar);
+      setcookie('exito', 'exito', time() + 3, '/');
+    } else {
+      setcookie('error', 'error', time() + 3, '/');
+    }
+    header("location:../vistas/datosPersonales.php");
   }
   public function cambiarContrasena()
   {
@@ -142,22 +162,53 @@ class UsuarioControlador
     $usuario = $this->listar($_SESSION["usuario"]);
     if (password_verify($_POST['actual'], $usuario[0]->contrasena) && $_POST['nueva1'] == $_POST['nueva2']) {
       $this->model->cambiarContrasena($_SESSION['usuario'], password_hash($_POST['nueva1'], PASSWORD_DEFAULT));
-      if ($_SESSION['rol'] != "administrador") {
-        header("location:../vistas/cambiarContrasena.php?msg=actualizado");
+      setcookie('exito', 'exito', time() + 3, '/');
+      if ($_SESSION['rol'] != "administrador" && $_SESSION['rol'] != "Calificador") {
+        header("location:../vistas/cambiarContrasena.php?");
+      } else if ($_SESSION['rol'] == "Calificador") {
+        header("location:../vistas/cambiarContrasenaCalificador.php");
       } else {
-        header("location:../vistas/cambiarContrasenaAdmin.php?msg=actualizado");
+        header("location:../vistas/cambiarContrasenaAdmin.php");
       }
     } else {
+      setcookie('error', 'error', time() + 3, '/');
       if ($_SESSION['rol'] != "administrador") {
-        header("location:../vistas/cambiarContrasena.php?msg=incorrecto");
+        header("location:../vistas/cambiarContrasena.php");
       } else {
-        header("location:../vistas/cambiarContrasenaAdmin.php?msg=incorrecto");
+        header("location:../vistas/cambiarContrasenaAdmin.php");
       }
     }
   }
   public function eliminar()
   {
     $this->model->eliminar($_POST['codigo']);
+    setcookie('eliminada', 'eliminada', time() + 3, '/');
     header("location:../vistas/gestionarCalificadores.php");
+  }
+
+  public function enviarCorreo($asunto, $mensaje, $destinatario)
+  {
+
+    $mj = new \Mailjet\Client('9588160c4d1af70c3a75c656a83b1aeb', '437347bdb9015fb8198f0edbbb2d2376', true, ['version' => 'v3.1']);
+    $body = [
+      'Messages' => [
+        [
+          'From' => [
+            'Email' => "premiomeritoufps@outlook.com",
+          ],
+          'To' => [
+            [
+              'Email' => $destinatario,
+            ]
+          ],
+          'Subject' => $asunto,
+          'TextPart' => 'Premio merito UFPS',
+          'HTMLPart' => $mensaje,
+          'CustomID' => "AppGettingStartedTest"
+        ]
+      ]
+    ];
+    $response = $mj->post(Resources::$Email, ['body' => $body]);
+    $response->success() && var_dump($response->getData());
   }
 }

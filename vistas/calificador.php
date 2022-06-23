@@ -27,6 +27,19 @@ if (!isset($_SESSION['usuario'])||empty($_SESSION['usuario'])|| $_SESSION['rol']
       <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
+      <?php if (isset($_COOKIE['error'])) { ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  Datos incorrectos.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              <?php }  ?>
+              <?php if (isset($_COOKIE['exito'])) { ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  Nota agregada con exito.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+              <?php }  ?>
         <h5 class="card-title">Convocatorias</h5>
         <table class="table datatable">
           <thead>
